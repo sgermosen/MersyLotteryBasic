@@ -1,0 +1,135 @@
+﻿
+@model LotteryTicketView
+
+@{
+    ViewBag.Title = "Imprimir Ticket";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="~/css/printMediathermal.css" rel="stylesheet" />
+
+</head>
+@*https://github.com/parzibyte/print-receipt-thermal-printer*@
+<body>
+    <div class="ticket">
+        @if (!string.IsNullOrEmpty(Model.ImageFullPath))
+        {
+            @*<img src="@Url.Content(Model.ImageFullPath)" alt="Image" style="width: 300px; height: 300px;" dir="rtl" />*@
+            <img src="@Url.Content(Model.ImageFullPath)" alt="Logo">
+        }
+        <p class="centered">
+
+            @if (!string.IsNullOrEmpty(Model.Header1))
+            {
+                <text> @Model.Header1 </text> <br />
+            }
+            @if (!string.IsNullOrEmpty(Model.Header2))
+            {
+                <text> @Model.Header2 </text> <br />
+            }
+            @if (!string.IsNullOrEmpty(Model.Header3))
+            {
+                <text> @Model.Header3 </text> <br />
+            }
+
+        </p>
+        <p>
+            @if (!string.IsNullOrEmpty(Model.UserName))
+            {
+                <text>    Vendedor: @Model.UserName </text> <br />
+            }
+            Fecha: @Model.CreatedAt.Value.ToLocalTime()
+            <br />
+            <br />
+            Ticket: @Model.Ticket
+            <br />
+        </p>
+        <p class="centered">
+            VENTA DE LOTERIA
+            <br />
+        </p>
+        <table class="leftAlign">
+            <thead>
+                <tr>
+                    <th class="quantity">Lot.</th>
+                    <th class="quantity">PR</th>
+                    <th class="description">Numeros</th>
+                    <th class="price">Valor</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.LotterySaleItems != null && Model.LotterySaleItems.Count > 0)
+                {
+                    foreach (var item in Model.LotterySaleItems)
+                    {
+                        <tr>
+                            <td class="quantity">
+                                @item.Lottery.Code
+                            </td>
+                            <td class="quantity">
+                                @item.LotteryMode.Code
+                            </td>
+                            <td class="description">
+
+                                <text>  @item.Played1 | </text>
+                                <text>  @item.Played2 | </text>
+                                <text>  @item.Played3 | </text>
+                            </td>
+                            <th class="price">
+                                @item.PlayedAmount
+                            </th>
+                        </tr>
+
+                    }
+                }
+                <tr>
+                    <td class="quantity">
+                    </td>
+                    <td class="quantity">
+                    </td>
+                    <td class="description">
+                    </td>
+                    <th class="price">
+
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <p class="centered">
+            @if (!string.IsNullOrEmpty(Model.Footer1))
+            {
+                <text> @Model.Footer1 </text> <br />
+            }
+            @if (!string.IsNullOrEmpty(Model.Footer2))
+            {
+                <text> @Model.Footer2 </text> <br />
+            }
+            @if (!string.IsNullOrEmpty(Model.Footer3))
+            {
+                <text> @Model.Footer3 </text>
+            }
+
+        </p>
+    </div>
+    <a id="btnback" class="hidden-print" asp-action="SellNumbers">Volver a Venta</a>
+    <button id="btnPrint" class="hidden-print">Imprimir</button>
+
+</body>
+</html>
+
+<script>const $btnPrint = document.querySelector("#btnPrint");
+    $btnPrint.addEventListener("click", () => {
+        window.print();
+    });
+
+    window.print();</script>
+
+
+

@@ -1,0 +1,48 @@
+﻿ 
+@model Mersy.Web.Models.PersonView
+
+@{
+    ViewData["Title"] = "Regitrar Nuevo Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<form asp-action="Create" enctype="multipart/form-data">
+    <div class="container-fluid">
+        <div class="row">
+            <partial name="_PersonCommon" />
+            @*<div class="col-md-3">
+            <label class="control-label" data-localize="user.salary">Sueldo</label>
+            <input asp-for="Salary" class="form-control" />
+            <span asp-validation-for="Salary" class="text-danger"></span>
+        </div>*@
+          
+
+            <br /><br />
+            <partial name="_GenSubmitButons" />
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            manualTranslations();
+            othersTranslations();
+        });
+
+        function othersTranslations() {
+
+            //if (language == 'English' || language == 'en') {
+            //    $('#headerTitle').text('New User');
+            //} else {
+            //    $('#headerTitle').text('Regitrar Nuevo Usuario');
+            //}
+        }
+
+    </script>
+}
+
+

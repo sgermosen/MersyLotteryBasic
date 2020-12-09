@@ -1,0 +1,189 @@
+﻿@{
+    ViewData["Title"] = "Administracion General";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="row">
+        <div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="Owners"
+               asp-area="Root"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/clients2.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Clientes
+                </span>
+            </a>
+        </div>
+        @*<div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="OwnerTypes"
+               asp-area="Root"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/xxx.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Tipos de Clientes
+                </span>
+            </a>
+        </div>*@
+        <div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="Plans"
+               asp-area="Root"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/plans.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Planes
+                </span>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="OwnerPlans"
+               asp-area="Root"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/plansc.jpg" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Planes de los Clientes
+                </span>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="PlanTransactions"
+               asp-area="Root"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/transactions.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Transacciones
+                </span>
+            </a>
+        </div>
+        @*<div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="Currencies"
+               asp-area="Root"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/xxxxx.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Monedas
+                </span>
+            </a>
+        </div>*@
+
+        @*<div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="CurrencyRates"
+               asp-area="Root"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/xxxx.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Equivalencias de Monedas
+                </span>
+            </a>
+        </div>*@
+        @*<div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="Countries"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/xxxx.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Paises
+                </span>
+            </a>
+        </div>*@
+        @*<div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="PaymentTypes"
+               asp-area="Root"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/xxxxx.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold" data-localize="options.courses">
+                    Formas de Pago
+                </span>
+            </a>
+        </div>*@
+
+        <div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="Periodicities"
+               asp-area="Root"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/periodicities.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Periodicidades
+                </span>
+            </a>
+        </div>
+        @*<div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="Status"
+               asp-area="Root"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/xxxx.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Status
+                </span>
+            </a>
+        </div>*@
+        <div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="LotteryModes"
+               asp-area="Root"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/lotteriesModes.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Formatos de Loteria
+                </span>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-action="Index"
+               asp-controller="Lotteries"
+               asp-area="Administration"
+               class="btn btn-light"
+               style="width: 100%; text-align: left">
+                <img src="~/images/Icons/lotteries.png" width="60" height="60" align="middle" />
+                <span style="font-size: large; font-weight: bold">
+                    Loterias
+                </span>
+            </a>
+        </div>
+
+
+
+
+
+    </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            manualTranslations();
+            othersTranslations();
+        });
+
+        function othersTranslations() {
+
+            if (language == 'English' || language == 'en') {
+                $('#headerTitle').text('General Administration');
+            } else {
+                $('#headerTitle').text('Administracion General');
+            }
+        }
+
+    </script>
+}

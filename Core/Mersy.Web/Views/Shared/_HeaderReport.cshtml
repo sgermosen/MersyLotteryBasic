@@ -1,0 +1,43 @@
+﻿<link href="~/css/printMediaConfig.css" rel="stylesheet" />
+<p class="hideOnPrint">
+    <a data-localize="options.backToStart" asp-action="Index" asp-controller="Options" class="btn btn-success">
+        <i class="fa fa-reply-all"></i>
+        Regresar al Inicio
+    </a>
+    <a class="btn btn-primary" id="BtnPrintA4" data-localize="options.print">
+        <span class="fa fa-print"></span> Imprimir en A4
+    </a>
+</p>
+
+@await Html.PartialAsync("_FilterDateFromDateTo")
+
+
+<table id="printableArea" class="hide-start IsDetailForm"
+       style="font-size: 13pt; font-family: Times New Roman; font-weight: bold; text-transform: uppercase">
+    <tr>
+        <td rowspan="4" style="width: 15%">
+            <img alt="Image"
+                 style="width: 120px; height: 85px;" dir="rtl" src="~/images/Icons/_Mersy.png" />
+
+        </td>
+        <td rowspan="4" style="width: 75%; text-align: center">
+
+            <div>
+                FUNDACION PEDRO MARTINEZ
+            </div>
+
+            <div>
+                TEXTO
+            </div>
+
+            <div>
+                TEXTO
+            </div>
+
+            <br />
+            Informe de Alimentos
+        </td>
+        <td rowspan="4" style="width: 0"></td>
+        <td style="width: 10%"></td>
+    </tr>
+</table>

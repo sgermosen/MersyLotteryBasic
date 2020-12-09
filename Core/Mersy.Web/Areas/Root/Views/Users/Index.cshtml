@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Owner>
+
+@{
+    ViewData["Title"] = "Listado de Possedores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <a asp-action="Index"
+       asp-controller="Options"
+       asp-area=""
+       class="btn btn-success">
+        <i class="fa fa-reply-all"></i>
+        <span >Regresar a Todas las Opciones</span>  
+    </a>
+    <a asp-action="Create" class="btn btn-primary"
+       >
+        <i class="fa fa-plus"></i>
+        <span>Registrar Nuevo Poseedor (Cliente) </span>
+        
+    </a>
+</p>
+<h2 style="color:green">
+    @ViewBag.Msg
+</h2>
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th >
+                        Nombre
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Tel
+                    </th>
+                    <th>
+                        Roles
+                    </th>
+                    
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @item.Tel
+                        </td>
+                        <td style="width:120px;">
+                            <div class="btn-group" role="group">
+
+
+                                @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+                           {
+                               Action = "Details",
+                               ButtonType = "btn-sm btn-outline-success",
+                               Icon = "list",
+                               ToolTipText = "Detalles e Información",
+                               Text = "",
+                               Id = item.Id, 
+                           }
+                                                      )
+                                @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+                           {
+                               Action = "Edit",
+                               ButtonType = "btn-sm btn-outline-primary",
+                               Icon = "pencil-alt",
+                               Text = "",
+                               ToolTipText = "Modificar Registro",
+                               Id = item.Id, 
+                           }
+                                                       )
+                                @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+                           {
+                               Action = "Delete",
+                               ButtonType = "btn-sm btn-outline-danger",
+                               Class = "btnDirectDelete",
+                               Icon = "trash",
+                               Text = "",
+                               ToolTipText = "Eliminar Registro",
+                               Id = item.Id, 
+                           }
+                                                      )
+                            </div>
+
+                        </td>
+                        
+ 
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+   
+}
+
+
+
+

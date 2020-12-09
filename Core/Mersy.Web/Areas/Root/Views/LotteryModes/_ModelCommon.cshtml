@@ -1,0 +1,35 @@
+﻿ 
+@model LotteryMode
+ 
+    <div class="container-fluid">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="IsNew" />
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nombre</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PlayableNumber" class="control-label">Numeros Jugables (1-8)</label>
+                <input asp-for="PlayableNumber" class="form-control" />
+                <span asp-validation-for="PlayableNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AwardedNumber" class="control-label">Numeros Premiables (1-3) - Primera, Segunda, Tercera</label>
+                <input asp-for="AwardedNumber" class="form-control" />
+                <span asp-validation-for="AwardedNumber" class="text-danger"></span>
+            </div>
+
+
+
+        </div>
+    </div>
+ 
+ 
+
+

@@ -1,0 +1,20 @@
+﻿
+<p>
+    <a onclick="history.go(-1);"
+       class="btn btn-secondary">
+        <i class="fa fa-reply "></i>
+        <span>
+            Volver a Opciones
+        </span>
+    </a>
+
+    @if (User.IsInRole("User") || User.IsInRole("Doctor") || User.IsInRole("Supervisorn") || User.IsInRole("SuperUser") || User.IsInRole("Admin"))
+    {
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="fa fa-plus"></i>
+            <span>
+                Nuevo Registro
+            </span>
+        </a>
+    }
+</p>

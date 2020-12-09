@@ -1,0 +1,27 @@
+﻿
+
+
+<a onclick="history.go(-1);"
+   class="btn btn-success">
+    <i class="fa fa-reply "></i>
+    <span>
+        Volver
+    </span>
+</a>
+
+@if (User.IsInRole("Teacher") || User.IsInRole("Supervisorn") || User.IsInRole("SuperUser") || User.IsInRole("Admin"))
+{
+    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model.Id">
+        <i class="fa fa-pencil-alt"></i>
+
+        <span data-localize="options.edit">
+            Modificar
+        </span>
+    </a>
+    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@Model.Id">
+        <i class="fa fa-trash-alt"></i>
+        <span data-localize="options.delete">
+            Eliminar
+        </span>
+    </a>
+}

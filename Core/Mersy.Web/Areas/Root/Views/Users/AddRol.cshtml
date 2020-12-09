@@ -1,0 +1,75 @@
+﻿
+@model Mersy.Web.Models.RoleView
+
+@{
+    ViewData["Title"] = "Regitrar Nuevo Rol";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<form asp-action="AddRol">
+    <div class="container-fluid">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row ">
+            <input type="hidden" asp-for="UserId" />
+            <input type="hidden" asp-for="Controller" />
+            <div class="col-sm-12">
+                <label class="control-label">Rol </label>
+                <div class="row">
+
+                    <div class="col-sm-4">
+                        <select asp-for="Rol"
+                                asp-items="@((List<SelectListItem>)ViewData["Roles"])"
+                                class="form-control dateVal">
+                            <option value="0">...</option>
+                        </select>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+      
+        <br /><br />
+        <div class="row text-center">
+            <div class=" col-sm-12">
+
+                <a data-localize="options.cancelAndBack" asp-action="Index" class="btn btn-lg btn-warning">
+                    <i class="fa fa-times "></i> Cancelar y Volver Atras
+                </a>
+                <button data-localize="options.save" type="submit" class="btn btn-lg btn-primary">
+                    <i class="fa fa-save"></i> Guardar y Procesar Cambios
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            manualTranslations();
+            othersTranslations();
+        });
+
+        function othersTranslations() {
+
+            if (language == 'English' || language == 'en') {
+                $('#headerTitle').text('New Rol');
+            } else {
+                $('#headerTitle').text('Regitrar Rol');
+            }
+        }
+
+    </script>
+}
+
+

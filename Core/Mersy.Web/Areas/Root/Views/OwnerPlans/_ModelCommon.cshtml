@@ -1,0 +1,28 @@
+﻿ 
+@model OwnerPlan
+ 
+    <div class="container-fluid">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="IsNew" />
+
+        <div class="col-md-4">
+
+            @if (Model.IsNew)
+            {
+                <div class="form-group">
+                    <label asp-for="OwnerId" class="control-label">Cliente</label>
+                    <select asp-for="OwnerId" class="form-control" asp-items="ViewBag.Owners"></select>
+                </div>
+            }
+
+            <div class="form-group">
+                <label asp-for="PlanId" class="control-label">Plan</label>
+                <select asp-for="PlanId" class="form-control" asp-items="ViewBag.Plans"></select>
+            </div>
+        </div>
+    </div>
+ 
+ 
+
+

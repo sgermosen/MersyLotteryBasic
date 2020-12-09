@@ -1,0 +1,20 @@
+﻿
+    <p>
+        <a onclick="history.go(-1);"
+           class="btn btn-success">
+            <i class="fa fa-reply "></i>
+            <span data-localize="options.backLists">
+                Volver a Opciones
+            </span>
+        </a>
+
+        @if (User.IsInRole("Teacher") || User.IsInRole("Supervisorn") || User.IsInRole("SuperUser") || User.IsInRole("Admin"))
+        {
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="fa fa-plus"></i>
+                <span data-localize="options.create">
+
+                </span>
+            </a>
+        }
+    </p>

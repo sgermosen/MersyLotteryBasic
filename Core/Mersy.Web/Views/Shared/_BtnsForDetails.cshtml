@@ -1,0 +1,31 @@
+﻿@model ButtonsModel
+
+    <p>
+        <a type="button"
+           asp-action="Index"
+           class="btn btn-outline-secondary" title="Volver al Listado">
+            <i class="fa fa-list"></i>
+            <span>
+                Volver al Listado
+            </span>
+        </a>
+
+
+        @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+                                              {
+                                               Action = "Edit",
+                                               ButtonType = " btn-outline-primary",
+                                               Icon = "edit",
+                                               Text = "Modificar",
+                                               Id = Model.Id,
+                                              })
+        @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+                                              {
+                                               Class = "btnDirectDelete",
+                                               Action = "Delete",
+                                               ButtonType = " btn-outline-danger",
+                                               Icon = "trash",
+                                               Id = Model.Id,
+                                              })
+
+    </p>

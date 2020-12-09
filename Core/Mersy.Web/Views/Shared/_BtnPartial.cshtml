@@ -1,0 +1,11 @@
+﻿@model ButtonsModel
+
+<a type="button"
+   class="btn @Model.ButtonType @Model.Class" title="@Model.ToolTipText"
+   href="@Url.Action(Model.Action)@Model.ActionParameters">
+    <i class="fa fa-@Model.Icon"></i>
+    <span>  @*class="sr-only" >*@
+        @*This is broewser optimization*@
+        @Model.Text
+    </span>
+</a>

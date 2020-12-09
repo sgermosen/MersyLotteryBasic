@@ -1,0 +1,101 @@
+﻿@using Mersy.Web.Helpers
+@model   LotterySaleView 
+
+<div class="scroller">
+    <div class="table-responsive">
+        <table class="table table-hover table-striped" id="MyTable">
+            <thead>
+                <tr>
+                    <th>
+                        Vendedor
+                    </th>
+                    <th>
+                        Fecha
+                    </th>
+                    <th>
+                        Ticket
+                    </th>
+                    <th>
+                        Jugadas
+                    </th>
+                    <th>Monto</th>
+                    <th>
+                       Estado
+                    </th>
+                    <th>
+                        Premio
+                    </th>
+
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.Sales)
+                {
+                    <tr>
+                        <td>
+                            @item.CreatedUser.FullName
+                        </td>
+                        <td>
+                            @Html.FormatedTime(item.CreatedAt.Value)
+                        </td>
+                        <td>
+                            @item.Ticket
+                        </td>
+                        <td>
+                            @item.LotterySaleItems.Count()
+                        </td>
+                        <td>
+                            @item.TotalAmount
+                        </td>
+                        <td>
+                            @Html.TicketStatus(item.WasPaid, item.Prize)
+                        </td>
+                        <td>
+                            @item.Prize
+                        </td>
+
+                        <td>
+                            <div class="btn-group" role="group">
+                                <button data-id="@item.Id"  
+                                        class="btn btn-secondary btnShowDetailsTicket"
+                                        data-toggle="modal">
+                                    <i class="fa fa-search"></i>
+                                    <span>
+                                        Detalle
+                                    </span>
+                                </button> 
+                            </div> 
+
+                            <div class="btn-group" role="group">
+                                <a type="button" class="btn btn-primary"
+                                   asp-action="PrintTicket"
+                                   asp-route-id="@item.Id">
+                                    <i class="fa fa-print"></i>
+                                    <span>
+                                        Imprimir
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a type="button" class="btn btn-outline-danger btnDirectDelete"
+                                   asp-action="DeleteTicket"
+                                   asp-route-id="@item.Id">
+                                    <i class="fa fa-window-close"></i>
+                                    <span>
+                                      Sol. Anulacion
+                                    </span>
+                                </a>
+
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿
+@model IEnumerable<Mersy.Domain.Entities.Cor.MessageChat>
+<div class="jumbotron bg-light">
+    <h2 class="text-center text-primary">
+        <i class="fab fa-facebook-messenger"><i>&nbsp; Public Talk
+    </h2>
+
+    <div class="row">
+        <div class="col-md-12" id="chat">
+            @if (Model != null)
+            {@foreach (var message in Model.Orderby(m => m.When))
+                {
+                    string containerClass, timePosition, textAlign, contcolor, offset;
+                    if (username == message.UserName)
+                    {
+                        containerClass = "container darker";
+                        timePosition = "time-right text-light";
+                        textAlign = "text-right text-white";
+                        contcolor "bg-primary";
+                        offset = "col-md-6 offset-md-6";
+                    }
+                    else
+                    {
+                        containerClass = "container";
+                        timePosition = "time-left";
+                        textAlign = "text-left";
+                        contcolor "bg-light";
+                        offset = "";
+                    }
+                    <div class="row">
+                        <div class=@offset">
+                            <div class=@containerClass @contcolor ">
+                                <p class="sender @textAlign"> @message.UserName </p>
+                                <p class="@textAlign"> @message.Text</p>
+                                <span class="@timePosition">@message.When.ToString("dd/MM/yyyy")" </span>
+                            </div>
+                        </div>
+                    </div>
+                }
+        }
+        </div>
+        <div class="col-md-12">
+            <form asp-action="Create"
+                  data-ajax-begin="clearInputField" data-ajax-complete="" data-ajax-failure="alert('Fail')" data-ajax-success="sendMessage" data-ajax="true" data-ajax-method="POST">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input name="Text" class="form-control" id="messageText" />
+                </div>
+                <div class="form-group">
+                    <input type"submit" value="Send" id=submitButton" class="btn btn-primary" />
+                </div>
+                <input type"hidden" value="@userName" name="username" />
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+const userName = "@ViewBag.CurrentUserName";
+</script>
+

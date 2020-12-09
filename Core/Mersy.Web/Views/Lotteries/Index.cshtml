@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Lottery>
+@using Mersy.Web.Controllers;
+@{
+    ViewData["Title"] = "Loterias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int day = (int)DateTime.Today.DayOfWeek;
+}
+
+
+<h2 style="color:green">
+    @ViewBag.Msg
+</h2>
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Codigo
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Cierre
+                    </th>
+                    <th>
+                        Status
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @item.Code
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+
+                    <td>
+                        @if (@item.LotterySchedules.FirstOrDefault(p => p.DayOfTheWeek == day) != null)
+                        {
+                            <text>
+
+                                @item.LotterySchedules.FirstOrDefault(p => p.DayOfTheWeek == day).CloseHour.ToString("hh:mm")
+                            </text>
+                        }
+                    </td>
+
+                    <td>
+                        @if (@item.Available)
+                        {
+                            <i class="fa fa-check"></i>
+
+                        }
+                        else
+                        {<i class="fas fa-ban"></i>
+                        }
+                    </td>
+
+                    <td style="width:120px;">
+                        <div class="btn-group" role="group">
+
+                            @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+                                                                       {
+                                                                           Action = "Details",
+                                                                           ButtonType = "btn-sm btn-outline-secondary",
+                                                                           Icon = "pencil-alt",
+                                                                           ToolTipText = "Detalles e Información",
+                                                                           Text = "",
+                                                                           Id = item.Id,
+                                                                       }
+                                                  )
+
+
+                        </div>
+
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>$(document).ready(function () {
+
+        });</script>
+}
+
+
+
+

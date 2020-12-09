@@ -1,0 +1,66 @@
+﻿@using Mersy.Web.Helpers
+@model LotterySale
+
+
+    <div class="modal-header">
+        <div class="text-center" style=" font-weight: bold; color: darkcyan; font-size: x-large ">
+            <i class="fas fa-file-alt"></i>
+            <span class="caption-subject  ">Ticket No: @Model.Ticket</span>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+
+
+        @*<div class="page-toolbar">
+            <div class="btn-group pull-right">
+                <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    Acciones
+                    <i class="fa fa-angle-down"></i>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+
+                    <li>
+                        <a href="javascript:;" onclick="cancelTicket('@Model.Id')"><i class="fa fa-trash-o"></i> Anular ticket</a>
+                    </li>
+                </ul>
+            </div>
+        </div>*@
+    </div>
+
+<div class="modal-body">
+     
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-scrollable" style="max-height: 400px; overflow-y: auto;">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th> Combinación </th>
+                            <th> Lotería </th>
+                            <th> Numero </th>
+                            <th> Monto </th>
+                            <th> Premio </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.LotterySaleItems)
+                        {
+                            <tr>
+                                <td>@item.LotteryMode.Name</td>
+                                <td>@item.Lottery.Name</td>
+                                <td>@item.PlayedNumbers</td>
+                                <td>@item.PlayedAmount</td>
+                                <td>@item.Prize</td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn default" data-dismiss="modal">Cerrar</button>
+</div>

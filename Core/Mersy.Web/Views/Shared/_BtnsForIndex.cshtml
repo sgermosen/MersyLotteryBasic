@@ -1,0 +1,43 @@
+﻿@model ButtonsModel
+
+<td  style="width:120px;">
+    <div class="btn-group" role="group">
+
+
+        @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+   {
+       Action = "Details",
+       ButtonType = "btn-sm btn-outline-success",
+       Icon = "list",
+       ToolTipText = "Detalles e Información",
+       Text = "",
+       Id = Model.Id,
+       ItemId = Model.ItemId,
+   }
+                              )
+        @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+   {
+       Action = "Edit",
+       ButtonType = "btn-sm btn-outline-primary",
+       Icon = "pencil-alt",
+       Text = "",
+       ToolTipText = "Modificar Registro",
+       Id = Model.Id,
+       ItemId = Model.ItemId,
+   }
+                               )
+        @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+   {
+       Action = "Delete",
+       ButtonType = "btn-sm btn-outline-danger",
+       Class = "btnDirectDelete",
+       Icon = "trash",
+       Text = "",
+       ToolTipText = "Eliminar Registro",
+       Id = Model.Id,
+       ItemId = Model.ItemId,
+   }
+                              )
+    </div>
+
+</td>

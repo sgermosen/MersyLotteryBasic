@@ -1,0 +1,81 @@
+﻿@using Mersy.Web.Helpers
+@model IEnumerable<LotterySaleItemView>
+
+<div class="scroller">
+    <div class="table-responsive">
+        <table class="table table-hover table-striped" id="MyTable">
+            <thead>
+                <tr>
+                   
+                    <th>
+                        Combinación
+                    </th>
+                    <th>
+                        Jugada
+                    </th>
+                    <th>
+                        Loteria
+                    </th>
+                    <th>Limite</th>
+                    <th>
+                       Acumulado
+                    </th>
+                    <th>
+                        Disponible
+                    </th>
+                    <th>
+                        Jugadas
+                    </th>
+                    
+
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                <tr>
+
+                    <td>
+                        @item.LotteryMode.Name
+                    </td>
+                    <td>
+                        @item.Number
+                    </td>
+                    <td>
+                        @item.Lottery.Name
+                    </td>
+                    <td>
+                        @item.Limit
+                    </td>
+                    <td>
+                        @item.Cumulative
+                    </td>
+                    <td>
+                        @item.Available
+                    </td>
+                    <td>
+                        @item.PlayedNumbers
+                    </td>
+
+                    <td>
+                        <div class="btn-group" role="group">
+                            <button data-id="@item.Number" data-lottery="@item.Lottery.Id" data-mode="@item.LotteryMode.Id"
+                                    class="btn btn-secondary btnShowDetailsItem"
+                                    data-toggle="modal">
+                                <i class="fa fa-search"></i>
+                                <span>
+                                    Detalle
+                                </span>
+                            </button>
+                        </div>  
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

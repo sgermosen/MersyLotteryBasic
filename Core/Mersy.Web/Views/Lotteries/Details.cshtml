@@ -1,0 +1,293 @@
+﻿
+@model LotteryViewModel
+
+@{
+    ViewData["Title"] = "Detalle ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<form asp-action="SaveModelDetail" enctype="multipart/form-data">
+
+    <div style="text-align:right">
+        <a asp-action="Index"
+           class="btn btn-secondary">
+            <i class="fa fa-reply-all"></i>
+            <span>Regresar</span>
+        </a>
+        <button type="submit" class="btn btn-primary">
+            <i class="fa fa-save "></i>
+            <span>
+                Guardar
+            </span>
+        </button>
+    </div>
+    <div>
+
+        <div class="container-fluid">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <label asp-for="Name" class="control-label">Nombre Loteria</label>
+
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="Code" class="control-label">Codigo/Abreviatura</label>
+
+                </div>
+
+
+                <div class="col-md-4">
+                    <label asp-for="Available" class="control-label">Disponible?</label>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <input asp-for="Code" class="form-control" />
+                    <span asp-validation-for="Code" class="text-danger"></span>
+                </div>
+
+
+                <div class="col-md-4">
+                    <input type="checkbox" asp-for="Available"
+                             data-toggle="toggle">
+
+                    <span asp-validation-for="Available" class="text-danger"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <br />
+    <input type="hidden" asp-for="Id" />
+
+    <h3>
+        Horario de cierre
+    </h3>
+    <br />
+    <div class="row" style="font-size:large;font-weight:bold">
+        <table width="100%">
+            <tr style="width:95%">
+                <td style="width:14%">
+                    <label>Lunes</label>
+
+                </td>
+                <td style="width:14%">
+                    <label>Martes</label>
+                </td>
+                <td style="width:14%">
+                    <label>Miercoles</label>
+                </td>
+                <td style="width:14%">
+                    <label>Jueves</label>
+                </td>
+                <td style="width:14%">
+                    <label>Viernes</label>
+                </td>
+                <td style="width:14%">
+                    <label>Sabado</label>
+                </td>
+                <td style="width:14%">
+                    <label>Domingo</label>
+                </td>
+            </tr>
+           
+            <tr style="width:95%">
+                <td style="width:14%">
+                    <input asp-for="CloseMonday" class="form-control" type="time" />
+                    <span asp-validation-for="CloseMonday" class="text-danger"></span>
+                </td>
+                <td style="width:14%">
+                    <input asp-for="CloseTuesday" class="form-control" type="time" />
+                    <span asp-validation-for="CloseTuesday" class="text-danger"></span>
+                </td>
+                <td style="width:14%">
+                    <input asp-for="CloseWednesday" class="form-control" type="time" />
+                    <span asp-validation-for="CloseWednesday" class="text-danger"></span>
+                </td>
+                <td style="width:14%">
+                    <input asp-for="CloseThursday" class="form-control" type="time" />
+                    <span asp-validation-for="CloseThursday" class="text-danger"></span>
+                </td>
+                <td style="width:14%">
+                    <input asp-for="CloseFriday" class="form-control" type="time" />
+                    <span asp-validation-for="CloseFriday" class="text-danger"></span>
+                </td>
+                <td style="width:14%">
+                    <input asp-for="CloseSaturday" class="form-control" type="time" />
+                    <span asp-validation-for="CloseSaturday" class="text-danger"></span>
+                </td>
+                <td style="width:14%">
+                    <input asp-for="CloseSunday" class="form-control" type="time" />
+                    <span asp-validation-for="CloseSunday" class="text-danger"></span>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+    <br />
+    <h3>
+        Premios
+    </h3>
+    <br />
+    <div class="row" style="font-size:large;font-weight:bold">
+        <table width="100%">
+            <tr style="width:95%">
+                <td style="width:10%">
+                    <label> </label>
+
+                </td>
+                <td style="width:25%">
+                    <label>1er premio</label>
+                </td>
+                <td style="width:25%">
+                    <label>2do premio</label>
+                </td>
+                <td style="width:25%">
+                    <label>3er premio</label>
+                </td>
+
+            </tr>
+            <tr style="width:95%">
+                @if (Model.LotteryFromId == 2)
+                {
+                    <td>
+                        <label>Borlette</label>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <label>Quiniela</label>
+                    </td>
+                }
+                <td style="width:25%">
+                    <input asp-for="Loto1First" class="form-control" type="number" />
+                    <span asp-validation-for="Loto1First" class="text-danger"></span>
+                </td>
+                <td style="width:25%">
+                    <input asp-for="Loto1Second" class="form-control" type="number" />
+                    <span asp-validation-for="Loto1Second" class="text-danger"></span>
+                </td>
+                <td style="width:25%">
+                    <input asp-for="Loto1Third" class="form-control" type="number" />
+                    <span asp-validation-for="Loto1Third" class="text-danger"></span>
+                </td>
+
+
+            </tr>
+
+          
+            <tr style="width:95%">
+                @if (Model.LotteryFromId == 2)
+                {
+                    <td>
+                        <label>Mariage</label>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <label>Palé</label>
+                    </td>
+                }
+                <td style="width:25%">
+                    <input asp-for="Loto2First" class="form-control" type="number" />
+                    <span asp-validation-for="Loto1First" class="text-danger"></span>
+                </td>
+                @if (Model.LotteryFromId == 1)
+                {
+                    <td style="width:25%">
+                        <input asp-for="Loto2Second" class="form-control" type="number" />
+                        <span asp-validation-for="Loto1Second" class="text-danger"></span>
+                    </td>
+                }
+                else
+                {
+                    <td style="width:25%">
+                    </td>
+                }
+                <td style="width:25%">
+                </td>
+
+
+            </tr>
+
+            
+            <tr style="width:95%">
+                @if (Model.LotteryFromId == 2)
+                {
+                    <td>
+                        <label>Loto 3</label>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <label>Tripleta</label>
+                    </td>
+                }
+                <td style="width:25%">
+                    <input asp-for="Loto3First" class="form-control" type="number" />
+                    <span asp-validation-for="Loto3First" class="text-danger"></span>
+                </td>
+                <td style="width:25%">
+                </td>
+                <td style="width:25%">
+                </td>
+
+
+            </tr>
+
+           
+            <tr style="width:95%">
+                @if (Model.LotteryFromId == 2)
+                {
+                    <td>
+                        <label>Loto 4</label>
+                    </td>
+                    <td style="width:25%">
+                        <input asp-for="Loto4First" class="form-control" type="number" />
+                        <span asp-validation-for="Loto4First" class="text-danger"></span>
+                    </td>
+                    <td style="width:25%">
+                    </td>
+                    <td style="width:25%">
+                    </td>
+                }
+                else
+                {
+
+                }
+
+
+
+            </tr>
+        </table>
+
+
+    </div>
+
+
+</form>
+
+
+
+
+

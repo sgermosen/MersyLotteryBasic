@@ -1,0 +1,4 @@
+﻿namespace Mersy.Web.Data
+{
+
+}

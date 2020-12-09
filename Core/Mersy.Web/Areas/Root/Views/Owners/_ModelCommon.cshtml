@@ -1,0 +1,86 @@
+﻿ 
+@model Owner
+ 
+    <div class="container-fluid">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="IsNew" />
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nombre</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label">Apellido/Slogan</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Tel" class="control-label">Telefono</label>
+                <input asp-for="Tel" class="form-control" />
+                <span asp-validation-for="Tel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrefixExp" class="control-label">Prefijo Exp.</label>
+                <input asp-for="PrefixExp" class="form-control" />
+                <span asp-validation-for="PrefixExp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrefixFact" class="control-label">Prefijo Factura/Ticket</label>
+                <input asp-for="PrefixFact" class="form-control" />
+                <span asp-validation-for="PrefixFact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeqFact" class="control-label">Secuencia Actual Factura </label>
+                <input asp-for="SeqFact" class="form-control" />
+                <span asp-validation-for="SeqFact" class="text-danger"></span>
+            </div>
+
+            
+
+            <div class="form-group">
+                <label asp-for="PrefixNcf" class="control-label">Prefijo NCF</label>
+                <input asp-for="PrefixNcf" class="form-control" />
+                <span asp-validation-for="PrefixNcf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeqNcf" class="control-label">Secuencia Actual NCF</label>
+                <input asp-for="SeqNcf" class="form-control" />
+                <span asp-validation-for="SeqNcf" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="PrefixFinalFact" class="control-label">Prefijo Factura Comprobante</label>
+                <input asp-for="PrefixFinalFact" class="form-control" />
+                <span asp-validation-for="PrefixFinalFact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NcfEnds" class="control-label"></label>
+                <input asp-for="NcfEnds" class="form-control" />
+                <span asp-validation-for="NcfEnds" class="text-danger"></span>
+            </div>*@
+
+            <div class="form-group">
+                <label asp-for="OwnerType" class="control-label">Tipo</label>
+                <select asp-for="OwnerTypeId" class="form-control" asp-items="ViewBag.OwnerTypes"></select>
+                <span asp-validation-for="OwnerType" class="text-danger"></span>
+            </div>
+
+            @*<div class="form-group">
+                <label asp-for="Imagen"></label>
+                <input asp-for="Imagen" class="form-control" />
+                <span asp-validation-for="Imagen" class="text-danger"></span>
+            </div>*@
+        </div>
+    </div>
+ 
+ 
+
+

@@ -1,0 +1,253 @@
+﻿
+@model Mersy.Web.Areas.Reports.Models.ReportView
+
+@{
+    ViewBag.Title = "Editar Empresa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="EditOwner" enctype="multipart/form-data">
+
+    @Html.AntiForgeryToken()
+         
+    <div style="text-align:right">
+        @*<a asp-action="Index"
+           asp-controller="Options"
+           asp-area=""
+           class="btn btn-secondary">
+            <i class="fa fa-reply-all"></i>
+            <span>Regresar a Todas las Opciones</span>
+        </a>*@
+        <button type="submit" class="btn btn-primary">
+            <i class="fa fa-save "></i>
+            <span>
+                Guardar
+            </span>
+        </button>
+    </div>
+   
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.Imagen)
+        
+
+        <div class="row">
+            <div class="col-xl-12">
+                <!-- START card-->
+                <div class="card card-default" id="cardDemo14">
+                    <div class="card-header"> </div>
+                    <div class="card-body">
+                        <div role="tabpanel">
+                            <!-- Nav tabs-->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" href="#main" aria-controls="main" role="tab" data-toggle="tab" aria-selected="false">
+                                        Datos Generales
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" href="#report" aria-controls="report" role="tab" data-toggle="tab" aria-selected="false">
+                                        Datos del Ticket
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link " href="#settings" aria-controls="settings" role="tab" data-toggle="tab" aria-selected="true">
+                                        Imagen/Logo
+                                    </a>
+                                </li>
+                            </ul><!-- Tab panes-->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="main" role="tabpanel">
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Nombre </label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Slogan </label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Tel</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control Tel" } })
+                                            @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Dirección</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Plan</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Model.PlanName
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Licencias</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Model.UsersAvailable
+                                        </div>
+                                    </div>
+                                  
+
+                                </div>
+                                <div class="tab-pane" id="report" role="tabpanel">
+
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Prefijo de Ticket</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            @Html.EditorFor(model => model.PrefixFact, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.PrefixFact, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Cabecera 1</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Header1, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Header1, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Cabecera 2</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Header2, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Header2, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Cabecera 3</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Header3, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Header3, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Pie de Pagina 1</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Footer1, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Footer1, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Pie de Pagina 2</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Footer2, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Footer2, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">Pie de Pagina 3</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Footer3, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Footer3, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label"></label>
+                                        </div>
+                                        <div class="checkbox">
+                                            Nombre del Vendedor en el Ticket  @Html.EditorFor(model => model.UserNameInReport)
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane " id="settings" role="tabpanel">
+                                    <div class="form-group row">
+                                        @if (!string.IsNullOrEmpty(Model.Imagen))
+                                        {
+                                            <label class="col-md-2 col-form-label">Imagen/Logo Actual</label>
+                                            <div class="col-md-10">
+
+                                                <img src="@Url.Content(Model.Imagen)" alt="Image" style="width: 300px; height: 300px;" dir="rtl" />
+
+
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label">Imagen/Logo Nuevo</label>
+                                        <div class="col-md-10">
+                                            <input asp-for="ImageFile" class="form-control filestyle" type="file" data-classbutton="btn btn-secondary" data-classinput="form-control inline"
+                                                   data-icon="<span class='fa fa-upload mr-2'></span>"
+                                                   id="filestyle-0" tabindex="-1" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- END card-->
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <br /><br /> 
+    </div>
+
+
+
+</form>
+@section Scripts {
+    <script src="~/Vendor/bootstrap-filestyle/src/bootstrap-filestyle.js"></script>
+
+}

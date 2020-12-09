@@ -1,0 +1,210 @@
+﻿@using Mersy.Web.Helpers
+@model PlayViewModel
+
+@{
+    ViewData["Title"] = "Listado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="color:green">
+    @ViewBag.Msg
+</h2>
+
+<h3>Filtrar Por</h3>
+<table>
+    <tr>
+        <th>
+            Combinación
+        </th>
+        <th>
+            Numero
+        </th>
+        <th>
+            Loteria
+        </th>
+        <th>
+
+        </th>
+
+    </tr>
+    <tr>
+
+        <td>
+            <select id="mode" class="form-control" asp-items="ViewBag.LotteryModes"></select>
+        </td>
+        <td>
+            <input id="play" class="form-control" />
+
+        </td>
+        <td>
+            <select id="lottery" class="form-control" asp-items="ViewBag.Lotteries"></select>
+
+        </td>
+        <td>
+            <a class="btn btn-outline-info"
+               id="ticket_refresh">
+                <i class="fas fa-sync"></i>
+            </a>
+        </td>
+
+
+
+    </tr>
+</table>
+
+<div id="tableHolder">
+    @await Html.PartialAsync("_PlayPartial", Model.Items)
+</div>
+
+<div class="modal fade" id="detailDialog" tabindex="-1"
+     role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <div id="tableHolderx">
+                @await Html.PartialAsync("_TicketDetailsPartial", Model.Sale)
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="detailItemDialog" tabindex="-1"
+     role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document"> 
+        <div class="modal-content">
+            <div id="tableHolderxy">
+                @await Html.PartialAsync("_TicketDetailsByNumberPartial", Model)
+            </div>
+        </div>
+    </div>
+</div>
+ 
+@section Scripts {
+
+    <script>
+
+        function GetTickets() {
+             var url = '@Url.Action("MonitoringPlaysFilterx")';
+
+            $.ajax({
+                type: "POST",
+                url: url, //call your controller and action
+                data: {
+                    mode: $('#mode').val(),
+                    play: $('#play').val(),
+                    lottery: $('#lottery').val(),
+                },
+                success: function (data) {
+
+                    $("#tableHolder").html(data);
+
+                    $('.btnShowDetailsItem').on('click', function (e) {
+                        Loaditems(e);
+                    });
+                    $('.btnShowDetailsTicket').on('click', function (e) {
+                        LoadTicket(e);
+                    });
+                }
+                });
+
+        }
+
+        function Loaditems(e) {
+                    e.preventDefault();
+
+         var url = '@Url.Action("GetItemsToDisplayDetail")';
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {
+                    playedNumber: e.currentTarget.dataset.id,
+                    lotteryId: e.currentTarget.dataset.lottery   ,
+                    modeId: e.currentTarget.dataset.mode   ,
+                },
+                success: function (data) {
+                    $("#tableHolderxy").html(data);
+                    $('#detailItemDialog').modal('show');
+
+                    $('.btnShowDetailsItem').on('click', function (e) {
+                        Loaditems(e);
+                    });
+                    $('.btnShowDetailsTicket').on('click', function (e) {
+                        LoadTicket(e);
+                    });
+                }
+                });
+        }
+
+        function LoadTicket(e) {
+             e.preventDefault();
+
+         var url = '@Url.Action("GetTicketToDisplayDetail")';
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {
+                    ticketId: e.currentTarget.dataset.lotterysale,
+                },
+                success: function (data) {
+                    $("#tableHolderx").html(data);
+                    $('#detailDialog').modal('show');
+
+                    $('.btnShowDetailsItem').on('click', function (e) {
+                        Loaditems(e);
+                    });
+                    $('.btnShowDetailsTicket').on('click', function (e) {
+                        LoadTicket(e);
+                    });
+
+                }
+                });
+        }
+
+        $(document).ready(function () {
+
+            $('#mode').on('change', function () {
+                GetTickets();
+            });
+            $('#play').on('change', function () {
+                GetTickets();
+            });
+            $('#lottery').on('change', function () {
+                GetTickets();
+            });
+            $('#ticket_refresh').on('click', function () {
+                GetTickets();
+            });
+            $('.btnShowDetailsItem').on('click', function (e) {
+                Loaditems(e);
+                });
+
+            $('.btnShowDetailsTicket').on('click', function (e) {
+                LoadTicket(e);
+            });
+
+        });
+
+        $(document).on('hidden.bs.modal', function (event) {
+            if ($('.modal:visible').length) {
+                $('body').addClass('modal-open');
+            }
+        });
+
+        var modal_lv = 0;
+        $('.modal').on('shown.bs.modal', function (e) {
+            $('.modal-backdrop:last').css('zIndex', 1051 + modal_lv);
+            $(e.currentTarget).css('zIndex', 1052 + modal_lv);
+            modal_lv++
+        });
+
+        $('.modal').on('hidden.bs.modal', function (e) {
+            modal_lv--
+        });
+    </script>
+}
+
+
+
+

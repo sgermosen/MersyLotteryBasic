@@ -1,0 +1,505 @@
+Pagina que hable de la coopeticion y que sea motivacional de euge y vaina
+
+
+Ir al google adwords con los plugins instalados
+luego al planificador de palabras clave
+el volumen global de busqueda lo copiamos en el metodo flota de excel en drive
+
+ponemos la palabra clave en google y verificamos si hay anuncios de google, si los hay, es porque hay gente pujando por esa palabra
+y el clic es superior
+verificar si ese producto esta en amazon
+competencia: quiero saber si los resultados son multitematicas, monotematicas, si en la primera pagina hay monotematica entonces hay competencia fuerte
+disfruta el proceso
+hay dos vntas, la venta que compras sin pensartelo, y la venta meditada que la persona se lo piensa mucho, 
+en amazon buscar inspiracion
+
+search command
+analiza webs de sector que te interese
+(busca en google) grande y con micho contenido
+site:NombrePagina
+pasa de los primeros 100 resultados
+ve a  la 2 o tres
+toma palabras y vuelve a adwords
+
+cuando encuentres una web que este trabajando un SEO, puedes encontrar datos interesantes para mejorar aquello en lo que el esta flojo
+
+www.yougetsignal.com luego a reversal ip
+te analiza un dominio, te dice que otras webs estan en el mismo server
+en la misma ip
+
+href y semrush
+ponemos un dominio
+de una pagina web grande con mucho contenido
+buscamos palabras clave organicas.
+palabra volumen y posicion, 
+si google tiene resultado destacado ya la gente se queda con la info, por ende no hagan nada en ese sector
+Palabras clave derivadas
+google pon tu palabra clave y deja que google te sugiera
+si pones un astegisco detras te ayuda con lo que esta detras
+encontrar palabras clave relacionadas que son mas faciles de posicionar y asi tienes una
+keyword tool.io te da muchas recomendaciones
+copias, las pegas todas en el planificador de palabras clave y ya te da las busquedas
+
+Se pueden trabajar palabas clave mal escritas, mis spell, por ende debes tener en cuenta la palabra bien escrita
+no usar marcas registradas, pero que tal usar nombres de ciudades y paises , si, porque nadie tiene la potestad de reclamar ese dominio
+buscar en modo incognito porque de lo contrario te muestra cosas personalizadas para ti
+web multitematica mala
+si en primera posicion hay una web tipo gratuita blogspot, wix, si es multitematica seria 1, si es monotematica no, pero te la puedes ganar en serp
+si la primera posiiones es un foro
+una web con poco contenido, le das site:nombre
+para que te diga todos los resultados
+si 
+
+Con la web semilla queremos lograr que nos acepten en amazon y google
+google perfiere webs de contenido, amazon tipo tienda
+ambas lo que quieren son webs creibles, por lo que cuando tomas una web muy micronicho seguro no te aceptaran, porque para ellos no aportas valor
+la web semilla debe ser amplificable, creible, que posterior sea grande
+debe ser algo que te permita crear contenido y hablar de productos
+la palabra clave debe ser lo mas parecido a la paabra clave que tenga mas busquedas
+
+Instala wordpress
+quita las www en el palen de administracion, en general settings quita en wordpress address
+elimina todas las entradas
+pon que google no te indexe, porque no quieres que indexen una pagina que no tiene nada
+Instala 
+W3 Total Cache
+(3 cubitos)
+acitivamos, vamos a minify, habilitamos el js minify settings
+ycss minify settings
+
+akismet anti spam, 
+
+Yoast Seo
+feattures advanse setting enable y despues ale todo lo que nos interesa
+title and metas
+ plantilla de post dejamos title y site name
+en meta descripcion %%excerpt%%
+en pages, dejamos title y sitenamesepaprados con guion
+igual en la meta ponemos excerp
+media por ahora lo ponemos en no index
+taxonomias por ahora en no index
+las tags en no index
+el post format disabled
+author archives setthing disable
+date arcihve settings disable
+xml sitemaps activarlo
+taxonomias no in sitemap
+y tags not in sitemap
+permalinks
+changeursl remove
+redirect
+remove the replytocom variables
+remove
+plugin contact form 7
+crear pagina de contacto y poner en no index
+ vamos a ajustes y copiamos el shorcut, 
+luego vamos a pagina y añadir nueva
+escribimos contacto y luego el cajeting lo pegamos que copiamos, 
+en seo by yoast le ponemos no index
+
+Crear textos legales + cookie law info
+si no pones contenido de este tipo no es algo serio para ellos
+crear las paginas, 
+los pones en noindex
+el que no tiene nada de diseño
+plugin wp gallery custom links
+el feo que no tiene diseño en gris
+
+crear dos menues
+superior e inferior
+esto suma mucho
+en el top ponemos el contacto
+en el botton 
+ponemos privacidad
+politicas de cookie y contacto
+
+all in one wp migration
+exportamos a archivo
+
+seorocket
+sistrix medir el seo de una pagina
+
+
+auriculares para lectores audiolibros
+la verdad del feminismo
+cosas japonesas
+cosas chinas
+cosas arabes
+para 
+paneles solares
+losespertanos
+la papa frikie
+tipos de bici
+tipos de corbata
+
+
+remediosparalagripe.com
+ciclo de vida
+tipos de baile 
+para hippies
+material de laboratorio
+uvas verdes
+consejos del psicologo / meditacion / 
+higiene personal
+altavoces para lectores
+\libelulas
+alargartos
+lagartos
+vegetarianos come carne
+Flexitarianos
+latas de sardinas
+freidoras sin aceite
+solsticios
+monopolio
+jueguetes
+pelotas
+maquinarias 
+baridoras web semilla batidoras de mano rango c
+gladiadores
+cajas de herramientas
+origami
+cosas de papel
+para vivir sano
+hornos ecologicos
+cosas ecologicas
+
+
+es muy facil perderse en el divagar, no pierdas el foco, hay muchas opciones, pero no pierdas el tiempo, aprovecha al maximo tu tiempo, 
+focalizate
+
+La idea de las webs de rangos c es que sean long tail, no se pierde tiempo en ellas, 
+clickbanck, homemart 
+
+las palabras clave transaccionales (barato, comprar, etc) se posicionan para la palabra principal, osea, hornos baratos te estas posicionando (compite) por hornos y no baratos.
+
+---Estudio de palabras clave para arquitectura web
+hay dos tipos de palabras clave, inbound y transaccionales, inbound son para contenidos, las otras para accion, tiene como intencion vender, inbound son las que tienen como objetivo una informacion, 
+
+en el excel le ponemos 
+palabra clave Busquedas Tipo sinonimas/semanticas
+
+cosas que la gente esta buscando de distintas formas pero busca lo mismo, barbacoas de obra es lo mismo que barbacoas de ladrillo
+
+
+
+drift para hacer chatbot en wordpress
+
+quiero 10 palabras transaccionales, y 10 palabras inbound
+modelos y tipos se deben posicionar en la principal 
+
+para buscar palabras de inbound ponemos la palabra clave en google luego como y ver
+
+barbacoas como : va a arrojar como hacer barbacoas
+
+las inbound es mas
+answerthepublic.com para encontrar inbound, 
+
+las comparativas son excelente contenido de inbound
+
+Texto Informacional para redirigir a amazon
+para escribir debes pensar en el usuario, siempre piensa que quieres encontrar en el texto sobre lo que 
+acabas de buscar
+
+Las negritas deben ayudar a la lectura, este no ayuda al posicionamiento
+
+web de la universidad 
+los subdominios no tienen autoridad de nada, son como un dominio nuevo.
+
+productos retro
+comprar contansohistorias.com
+
+estudiar a vivirsano.com
+estudiara bebera.com
+
+estudio de palabras claves para una pagina de home page, transaccional e inbound
+
+si el auto completar te auto completa es una palabra clave con busqueda aunque las herramientas digan que no
+
+debes entender que quiere encontrar tu publico cuando entre a tu pagina o que cree google que la gente espera encontrar cuando vea tu pagina, asi sabes si haces una tienda o una pagina netamente informacional 
+para eso escribes tu palabra clave y revisa que sale en los primeros resultados
+
+analiza las paginas de la primera posicion y pasalas por href, para saber que otras palabras clave estan posicionadas esas paginas, porque segun google esas paginas o una posible competencia, no solo se debe posicionar para la palabra clave que estas atacando, sino para la que ya aquellas estan posicionadas y obviamente para otras mas.
+
+en href debemos de configurar como URL exacta para que no me diga todas las paginas internas
+estos resultados se ponen en el excel, en donde dice resultados semanticos, sinonimas, lsi, para 	uw lA INCLUYa wn la primera pagina, en tu home deben estar 
+
+podras encontrar los mejores juegos mentales 
+
+palabras clave para pagina transaccional lo que buscamos es mientras mas compradores mejor
+ojo con la diferencia, palabras tales como: "como hacer" "como se hace" estan pensadas para alguien que no desea comprar, no se debe posicionar cosas que no sean transaccionales
+
+y cualquier cosa que tenga que ver con comprar nos vamos a google a ver que nos dice y las vamos poner en semanticas, sinonimas
+precios
+
+el objetivo de las paginas inbound es informar y lo primero es responder a la pregunta que ha hecho el usuario inbound
+cual es el mejor ... vamos a google y buscamos las primeras posiciones
+distintos tipos de
+el mejor 
+diferencia entre
+
+debes atender a que el usuario se entere de cosas que no sabia antes
+
+si dentro de la busqueda de google sale un video, es una buena idea tu tambien poner un video en tus articulos
+
+que quede satiscfecho en su intencion de busqueda, que aprenda bastante
+
+el objetivo de la pagina de inicio es distribuir a la gente por tu web
+que ellos entiendan de que va tu web
+que te gustaria que tu web transmita.
+
+la pagina sea una 
+primero estructura tus encabezados (que van a ser tus H2), puedes usar los h2 de otras paginas modificandolos y desarrollandola de otras fuentes
+
+debemos hacer una intro que engancje a la gente a tu web, nunca hagas sentir culpable a tu audiencia
+, siempre escribe pensando en las personas.
+
+
+si vas a poner "destacan" pones las masrcas que mas busqueda tengan 
+en el menu podras encontrar tu .... ideal..
+en ... hemos clasificado  
+
+no hagas sentir culpable a tu lector porque no sepa la informacion, que les interese, escribe para la persona, que se sientan identificados
+
+Pixabay
+
+Contenido transaccional lo publicamos como paginas
+El contenido de inbound lo publicas como post entradas
+
+Si tienes la palabra clave en el enlace no lo repitas en el slug
+url corta
+
+Texto alternativo en las imagenes, debe ser todas aquellas formas en que pueden encontrar la imagen en las busquedas, en la leyenda, debes poner una descripcion y mini articulo
+
+exto dinamico, de facil lectura, videos retienen mas, imagenes de calidad
+
+*Hacer reseñas de productos, debe ser util para el usuario
+All in One Schema Rich Snippets (el del cohetico. brainstorm force)
+este añade esos microdatos que le dicen a google que este articulo es una reseña
+hacemos resenias de productos que amazon venda y que la gente busque
+
+ve a amazon y pon lo que quieres vender, el te va a lanzar las mejores en primera pagina
+son las que la gente busca y compra, 
+escoge como titulo palabras claves transaccionales, no de contenido, "mejores" "comparativas"   	cuestion de darle señales a google de que tu web es la mas actualizada sobre lo que se esta buscando titulo que capte la atencion del usuario
+Teprotoronto la mejor barbacoda del 2018
+
+atraer diversas intenciones de busqueda
+haz llamadas de atencionn visual
+usa estrellitas
+el meta es el copywriting para enganchar, eso no posiciona, es solo para ctr
+
+Inserta galerias en la descripcion de productos, quitale los sals (leyenda) y enlazado a galeria multimedia, nunca a pagina en adjunto
+
+Para que google indexe la imagen
+
+Nunca digas cosas negativas si quieres vender, di otras caracteristicas o algo similar, cosas a tener en cuenta
+
+siempre haz parrafos cortos
+Indexa en google siempre
+Entra a google search console
+ponle a añadir una propiedad
+ratreo
+explorar como google
+ponemos el slug de la url www.xxx.xom/este-es-mi-post solo usamos este-es-mi-post
+y le damos obtener y procesar
+y luego solicita la indexacion
+
+las .top son globales 
+Las palabras claves de 
+que no se note que vas muy muy nicho
+cada palabra clave debe atacar una inversion de busqueda
+no crees una pagina para cada palabra clave, esto es una mala practica que se solia usar antes 
+Cuantas palabras? las necesarias para que el usuario, sin paja, sin relleno, los textos largos venden y posicionan, pero porque son mas trabajados, sobretodo en las palabras clave de la home page
+y  
+Canibalizacion de palabras
+Poner sinonimos dentro del texto de tu palabra clave, para que tenga mayor amplitud semantica y ponlas en alt de imagenes
+No hay ninguna herramientas que sepa mas que tu de seo
+En la Home debe tener todo, transaccional, inbound pero que sea principalmente informativa
+ 
+
+En la pagina de inicio debes hacer una especie de index de todo el contenido que puede haber en tu pagina y le pones mini descripciones de los temas pero le pones un link al articulo o los articulos que hablan mas al detalle de estos
+
+la home debe dar la mejor respuesta a la intencion de busqueda del usuario
+te basas en otras webs, pero debes hacerlo mejor.
+Mira la competencia, piensa en lo que le pueda interesar al usuario, agrupa palabras clave, crea categorias y paginas, no hagas pollo al horno con papas y pollo al horno con patatas, porque es canibalizaicon de contenido, pero si dentro de pollo al horno con papas pon dentro del articulo porllo al horno con patatas
+las palabras mal escritas (mispel) hazlo en los alt de una imagen
+.pro y  .top o .ninja .cat 
+todosobre (embarazo, 
+Exgorditos.fit
+
+10 webs con 10k busqueda es mejor que una con 100k busquedas
+todosobre
+todosobrelamanzana
+todosobretodo
+todogamer.pro
+El camino es duro, si lo que haces lo haces a disgusto
+
+Trabaja con noticias actuales pon backlinks
+e interlinking
+
+Buscar las palabras que mas pagan o alto costo por clic
+en google adwords buscamos palabras como enfermedades
+microsoft private cloud certification
+cancer
+diversos tipos de cancer
+una vez instalado todo, ve a sslforfree.com y pega
+verificacion manual y descarga los archivos
+sube los archivos creando el folder .wellknow
+dentro creamos acme-challenge
+y dentro subimos los archivos
+despues vamos a la paginas de freessl y le damos a descargar certificado 
+luego vamos a seguridad de nuestro cpanel, y damos clic en SSL/TLS
+y le damos a manager ssl site 
+elegimos el dominio llenamos el certificado segun los datos que me da fressl pegando en los recuadros especificos y le damos a instalar
+luego vamos a simple ssl 
+vamos a wordpress y buscamos temas light-lite
+point buscar que se le pueda poner anuncio en la cabecera mag lite es buen tema
+
+usa plagarism checker para ver la autentisidad de tu articulo 
+Instala contact form 7, yoas ceo, wordfence
+wp fastest cache
+adsensei b30
+dejamos doly
+En el tag, van TODAS las palabras claves que tienes para tu articulo
+focus keyphrase para que me diga que tal esta el ceo para esa palabra 
+
+ArticleForge pagina para no se que 
+borrar los cache 
+diseña  las imagenes tu mismo, mejor usar imagenes con letras informativas, que copiar imagenes de google aun con la tecnica aquella
+imagenes solo con las letras le da mayor autoridad
+separa los bloques de tus anuncios a adaptables por nombre 
+ponlos en cabecera y en barra lateral
+pon horizontal en 726*90 en cabecera 
+Crea anuncios en el feed, 
+usa ninja para poner anuncio 1 cuadrado
+antes del primer parrafo
+y otro para despues del parrafo 1
+anuncio in feed manual 
+imagen arriba y en ninja lo pones en anuncio 3 a mitad del contenido
+
+fakerefrer.com
+faked url redirections
+crea un grupo que te permita identificar, cancer usa por ejemplo 
+agrega urls
+minimo 3 pero pega la masyor cantidad que quieras de tus entradas,  en referer siempre pon, seguras de google en from, debes poner .co si quieres colombia, com si quieres usa
+vamos a vip.ipts.com te logueas esta es para enviar trafico que te baje el ctr
+ponle de 5 en adelante
+te vas a computer agrega tu sitio en faked redirection ve a group detail y copia el link del redirection group en my site, pones la url del grupo, en site name pones el identificador cancer usa 
+tiempo en el sitio ponlo de 40 a 70 segundos 
+y deja todo como esta 
+pero cada dia alterna entre visit all pages random y visit subpage at random y en region del trafico dale a custom y pon de usa o el mismo trafico del sitio que hayas puesto que quieres en el grupo de y despues le das a iniciar 
+
+luego nos vamos a innoshow.com le agregamos mas credito como 10 
+abre un ticket no mandes tus datos, en el ticket pones que ya pagaste y no te dan el credito cuando te activen sale el credito 
+luego agregamos la 1ra campaña
+le pones un nombre cancer usa coges la url de grupo y armamos la campaña para los clicks
+donde muchos fallan es que no se ponen los keywords, pon todos los keywords habidos y por haber 
+siempre mande el trafico de 12 creditos 
+Geo double tardeted campaign/12 credit
+fluctua la cuenta, no mandes todos los dias 50 clicks, manda un dia 40 otro 25 al otro 6, al otro 30 pero para empezar manda 20 debe ser del mismo sitio USA que es de donde esta todo configurado
+clicks por hora pon 4 pero alterna
+o 2 por hora y luego en target devices solo ponen de PC (desktop service only)
+le dan a someter
+las que no esten activas en la pagina de fake refer borralas, 
+crea despues otro grupo 
+y agrega diferentes entradas o pueden ser las mismas
+y debes hacer esto para diferentes paises 
+y mandas mas trafico 
+pero con dayly trafic inferior como 300 en lugar de 500 
+en la pagina de las campañas, solo haces campañas para un pais a la vez (inoshow)
+y cada dia siempre cambia de 
+
+paginas que funcionen sin internet
+
+back links
+seo money de motores de busqueda, google, bing y yahoo, 
+seo money social, motores de redes sociales
+visibilidad en las redes sociales
+trafico web para rankeo de tu web
+trafico inteligencia artificial
+trafico frio
+
+trafico social
+trafico organico
+trafico por induccion inteligencia artificial
+unique Article Generator online tool php script
+article creator
+all in one seo pack
+beamer
+smallseotools.com/plagarism-checker
+cpa ferox
+comprarseguidores.shop
+topbuzz
+mobusi
+  adfocus
+
+Selecciona un producto, 
+ve a click bank o homemart
+escoge cualquiera
+salva tu matrimonio
+busca videos en youtune con mas de 5 mil vistas
+busca en youtube como salvar mi matrimonio haz clic en algunos, revisa donde en la descripcion el del video x, no este vendiendo ningun producto
+tu le comentas (spameas) 
+Animales, 
+perdon, no comentes, contacta con el duenio del video y dile que promocione el enlace y le daras una comision 
+3 contacta al youtuber, ve a about y ahi pon 
+Titulo del mensaje: "estas perdiendo dinero"
+Cuerpo
+"Hola
+Mi nombre es Starling y acabo de descubrir su canal y quiero felicitarlo por su ardua labor.
+
+En especial me llamó la atencion este video (enlace del video que encontraste) porque no lo esta monetizando a su maximo potencial
+
+Tengo un producto (dejale saber de que es el producto Ej: Para mejorar la salud de los perros) que es perfecto para su audienci.
+
+Con tan solo poner un enlace que le estaria dando yo, en la descripcion de su video podria ganar 44.90 dolares por cada venta.
+Puede no hacerlo y dejar el video asi, pero al no hacerlo esta perdiendo mucho dinero cada dia.
+He ayudado a muchos canales a ganar mas dinero corrigiendo estos pequeños errores que pieden reportar muchisimos ingresos pasivos
+
+Si desea empezar a ganar dinero desde ya, solo me deja saber y yo preperaria en menos de 2 horas todo el sistemas para darle el enlace que debe poner en la descripcion del video
+las ganancias la dividiriamos al 50%
+tube2fb.com
+article forge
+apostilla.info
+surfer competencia de keyword everywhere
+tsa plus
+que dicen los medicos.de
+ espireddomains
+https://www.youdot.io/es/ dominios expiradps compra
+https://www.ionos.com/
+adchoise para trabajar directo con ellos en lugar de adsense
+Con moz bar puedes ver la autoridad del sitio desde la serps
+y asi puedes saber si tienes mucho esfuerzo para alcanzar el da y el pa
+link grabber me saca los links de la pagina donde yo estaba, para comprar enlaces
+seerobots te permite ver si una pagina esta en robots o no
+redirect path codigos de respuesta
+keyword surfer
+check broken links
+
+No tienes nada que perder y mucho que ganar
+
+
+si el video no esta monetizado con adsense es mucho mejor
+
+Aprende a pintar
+Como perder peso
+Ansiedad
+Leer 
+Remedios
+Multinivel
+La Mente
+Meditacion
+
+d
+1. Optimiza la velocidad de carga Menos de 3 Segundos, Los tiempos de carga siempre se deben a imagenes o javascript, Sistema de cache, CdN en diversos servidores, Retocar la base de datos
+2. Estratejia de Contenidos, crealos con inteligencia y estrategia, 
+3. Trafico Inducido por news letter
+4. Anuncios en fb ads
+5. Crawl Budget: Presupuesto de rastreo o cantidad de rastreo (arañas) que google esta destinando a tu pagina web Identifica esas paginas que no te generan trafico y borra esos articulos o renuevalos, pero si son cosas que ya no aplican ni tienen enlaces entrantes, borralos y asi la base de datos carga mas rapido
+
+
+
+
+
+
+
+

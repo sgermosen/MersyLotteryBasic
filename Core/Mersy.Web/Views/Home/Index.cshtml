@@ -1,0 +1,278 @@
+﻿@{
+    ViewData["Title"] = "Sistema de Loterias Mersy LOT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Article
+
+<div class="page-container">
+
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content" style="min-height: 635px;">
+
+
+            <div class="row">
+                <div class="col-xl-3 col-lg-6">
+                    <!-- START card-->
+                    <div class="card bg-primary border-0">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col-3"><em class="fas fa-ticket-alt fa-5x" fa-5x"></em></div>
+                                <div class="col-9 text-right">
+
+                                    <div class="" style="font-size:x-large"> $@Model.SalesAmount.ToString("N") </div>
+                                    <p style="font-size:larger">Ventas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <!-- START card-->
+                    <div class="card bg-green border-0">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col-3"><em class="fa fa-gift fa-5x"></em></div>
+                                <div class="col-9 text-right">
+                                    <div class="" style="font-size:x-large">$@Model.PrizeAmount.ToString("N")</div>
+                                    <p style="font-size:larger">Premios</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- END card-->
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <!-- START card-->
+                    <div class="card bg-warning border-0">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col-3"><em class="fas fa-users fa-5x"></em></div>
+                                <div class="col-9 text-right">
+                                    <div class="" style="font-size:x-large">$@Model.ComissionAmount.ToString("N")</div>
+                                    <p style="font-size:larger">Comisión</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- END card-->
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <!-- START card-->
+                    <div class="card bg-danger border-0">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col-3"><em class=" fas fa-money-bill fa-5x"></em></div>
+                                <div class="col-9 text-right">
+                                    <div class="" style="font-size:x-large">
+                                        $@Model.BalanceAmount.ToString("N")
+                                    </div>
+                                    <p style="font-size:larger">Balance</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- END card-->
+                </div>
+            </div><!-- END row-->
+            <br>
+
+            <div class="caption" style="color:#44b6ae;font-size:x-large">
+                <i class="far fa-chart-bar"></i>
+                <span class="caption-subject bold font-green-haze"> Ventas por loteria</span>
+            </div>
+            <div id="chartdiv"></div>
+
+
+            <!--<div class="row">
+    <div class="col-xl-12">-->
+            <!-- START card-->
+            <!--<div class="card card-default" id="cardDemo14">
+    <div class="card-header"> </div>
+    <div class="card-body">
+        <div role="tabpanel">-->
+            <!-- Nav tabs-->
+            <!--<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" href="#main" aria-controls="main" role="tab" data-toggle="tab" aria-selected="false">
+                Ventas del día
+            </a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" href="#report" aria-controls="report" role="tab" data-toggle="tab" aria-selected="false">
+                Semana
+            </a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link " href="#settings" aria-controls="settings" role="tab" data-toggle="tab" aria-selected="true">
+                Mes
+            </a>
+        </li>
+    </ul>-->
+            <!-- Tab panes-->
+            <!--<div class="tab-content">
+                    <div class="tab-pane active" id="main" role="tabpanel">
+                        <div class="table-responsive">
+                            <div id="datatable_ventas_dia_wrapper" class="dataTables_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper no-footer">
+                                <div class="top"></div><table class="table table-striped table-hover table-bordered dataTable no-footer" id="datatable_ventas_dia" role="grid">
+                                    <thead>
+                                        <tr role="row"><th class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Vendedor : activate to sort column ascending"> Vendedor </th><th width="17%" class="sorting_desc" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-sort="descending" aria-label=" Venta : activate to sort column ascending"> Venta </th><th width="17%" class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Comisión : activate to sort column ascending"> Comisión </th><th width="17%" class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Premios : activate to sort column ascending"> Premios </th><th width="17%" class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Balance : activate to sort column ascending"> Balance </th></tr>
+                                    </thead>
+                                    <tbody><tr role="row" class="odd"><td>1) <i class="fa fa-user offline" id="vendedor_156875659380411776"></i> LASOLUTION  FONTOVA47</td><td class="sorting_1">124,000.00</td><td>18,600.00</td><td>280,000.00</td><td><span style="color:red">-174,600.00</span></td></tr></tbody>
+                                </table><div class="bottom"></div><div class="clear"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane" id="report" role="tabpanel">
+
+                        <div class="table-responsive">
+                            <div id="datatable_ventas_dia_wrapper" class="dataTables_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper no-footer">
+                                <div class="top"></div><table class="table table-striped table-hover table-bordered dataTable no-footer" id="datatable_ventas_dia" role="grid">
+                                    <thead>
+                                        <tr role="row"><th class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Vendedor : activate to sort column ascending"> Vendedor </th><th width="17%" class="sorting_desc" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-sort="descending" aria-label=" Venta : activate to sort column ascending"> Venta </th><th width="17%" class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Comisión : activate to sort column ascending"> Comisión </th><th width="17%" class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Premios : activate to sort column ascending"> Premios </th><th width="17%" class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Balance : activate to sort column ascending"> Balance </th></tr>
+                                    </thead>
+                                    <tbody><tr role="row" class="odd"><td>1) <i class="fa fa-user offline" id="vendedor_156875659380411776"></i> LASOLUTION  FONTOVA47</td><td class="sorting_1">124,000.00</td><td>18,600.00</td><td>280,000.00</td><td><span style="color:red">-174,600.00</span></td></tr></tbody>
+                                </table><div class="bottom"></div><div class="clear"></div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+
+                    <div class="tab-pane " id="settings" role="tabpanel">
+                        <div class="table-responsive">
+                            <div id="datatable_ventas_dia_wrapper" class="dataTables_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper dataTables_extended_wrapper no-footer">
+                                <div class="top"></div><table class="table table-striped table-hover table-bordered dataTable no-footer" id="datatable_ventas_dia" role="grid">
+                                    <thead>
+                                        <tr role="row"><th class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Vendedor : activate to sort column ascending"> Vendedor </th><th width="17%" class="sorting_desc" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-sort="descending" aria-label=" Venta : activate to sort column ascending"> Venta </th><th width="17%" class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Comisión : activate to sort column ascending"> Comisión </th><th width="17%" class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Premios : activate to sort column ascending"> Premios </th><th width="17%" class="sorting" tabindex="0" aria-controls="datatable_ventas_dia" rowspan="1" colspan="1" aria-label=" Balance : activate to sort column ascending"> Balance </th></tr>
+                                    </thead>
+                                    <tbody><tr role="row" class="odd"><td>1) <i class="fa fa-user offline" id="vendedor_156875659380411776"></i> LASOLUTION  FONTOVA47</td><td class="sorting_1">124,000.00</td><td>18,600.00</td><td>280,000.00</td><td><span style="color:red">-174,600.00</span></td></tr></tbody>
+                                </table><div class="bottom"></div><div class="clear"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+            <!-- END card-->
+            <!--</div>
+    </div>-->
+             
+            <input type="hidden" id="mastertk" class="token" name="ZkNwTEd5Um03Y0ZZOVVlRlA2NWhpQT09" value="dlB4QkNic2FyZUNtTXc5Uk9KdjZRQT09">
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+<style>
+    @*body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        background-color: #ffffff;
+        overflow: hidden;
+        margin: 0;
+    }*@
+    #articleList div {
+        text-align: left;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+
+        #articleList div h3 {
+            margin-bottom: 5px;
+        }
+
+        #articleList div p {
+            margin-bottom: 5px;
+        }
+    #chartdiv {
+        width: 80%;
+        max-height: 300px;
+        height: 50vh;
+    }
+</style>
+
+@section Scripts {
+    <script src="~/lib/signalr/signalr.min.js"></script>
+    <script src="~/js/notification.js"></script>
+    <script src="~/lib/amcharts4/core.js"></script>
+    <script src="~/lib/amcharts4/charts.js"></script>
+    <script src="~/lib/amcharts4/themes/animated.js"></script>
+    <script>
+
+
+        am4core.useTheme(am4themes_animated);
+
+        var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+      var dates = [
+            @foreach (var item in Model.Lotteries)
+            {
+             <text>
+                {
+                    "lottery": "@item.Name",
+                "sellAmount": @item.SalesAmount
+            },
+           </text>
+            }
+
+        ];
+
+        chart.data = dates;
+        console.log(dates);
+        console.log(chart.data);
+        chart.padding(40, 40, 40, 40);
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.dataFields.category = "lottery";
+        categoryAxis.renderer.minGridDistance = 60;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+        var series = chart.series.push(new am4charts.ColumnSeries());
+        series.dataFields.categoryX = "lottery";
+        series.dataFields.valueY = "sellAmount";
+
+        series.tooltipText = "{categoryX} : {valueY.value}"
+        series.columns.template.strokeOpacity = 0;
+
+        chart.cursor = new am4charts.XYCursor();
+
+        // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+        series.columns.template.adapter.add("fill", function (fill, target) {
+            return chart.colors.getIndex(target.dataItem.index);
+        });
+
+
+
+
+    </script>
+    <script>$(document).ready(function () {
+           
+            othersTranslations();
+        });
+
+        function othersTranslations() {
+            if (language == 'English' || language == 'en') {
+                $('#headerTitle').text('Administration System');
+            } else {
+                $('#headerTitle').text('Sistema de Administracion');
+            }
+        }</script>
+}
+
+
+
+
+
+
+
+

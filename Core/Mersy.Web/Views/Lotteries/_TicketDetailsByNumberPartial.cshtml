@@ -1,0 +1,59 @@
+﻿@using Mersy.Web.Helpers
+@model PlayViewModel
+
+<div class="modal-header">
+    <div class="text-center" style=" font-weight: bold; color: darkcyan; font-size: x-large ">
+        <i class="fas fa-file-alt"></i>
+        <span class="caption-subject" >Jugada: @Model.Number (@Model.Mode)</span> 
+    </div>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+</div>
+
+<div class="modal-body"> 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-scrollable" style="max-height: 600px; overflow-y: auto;">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th> Lotería </th>
+                            <th> Monto </th>
+                            <th> Ticket </th>
+                            <th> Vendedor </th>
+                            <th> Fecha </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>@item.Lottery.Name</td>
+                                <td>@item.PlayedAmount</td>
+                                <td>
+                                   
+                                        <a data-lotterysale="@item.LotterySaleId"
+                                                class="btn btn-outline-warning btnShowDetailsTicket"
+                                                data-toggle="modal">
+                                        
+                                            <span>
+                                                 @item.LotterySale.Ticket
+                                            </span>
+                                        </a>
+                                 
+
+                                </td>
+                                <td>@item.CreatedUser.FullName</td>
+                                <td>@item.CreatedAt.Value.ToString("dd/MM/yyyy")</td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<div class="modal-footer">
+    <button type="button" class="btn default" data-dismiss="modal">Cerrar</button>
+</div>

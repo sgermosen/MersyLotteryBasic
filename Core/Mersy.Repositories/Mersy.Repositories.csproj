@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mersy.Common\Mersy.Common.csproj" />
+    <ProjectReference Include="..\Mersy.Infraestructure\Mersy.Infraestructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="morelinq" Version="3.3.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CommonTaskStd">
+      <HintPath>..\Mersy.Web\Dlls\CommonTaskStd.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

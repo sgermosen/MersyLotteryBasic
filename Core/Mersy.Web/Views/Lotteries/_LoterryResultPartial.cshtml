@@ -1,0 +1,72 @@
+﻿@using Mersy.Web.Helpers
+@model ResultsViewModel
+
+@if (Model.Bo != null && Model.Bo.Available)
+{
+    <div class="form-group row">
+        <div class="col-md-3">
+            <b>
+                @Model.Bo.Name
+            </b>
+        </div>
+        <div class="col-md-1">
+            <input asp-for="Bo1" class="form-control" />
+            <span asp-validation-for="Bo1" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1">
+            <input asp-for="Bo2" class="form-control" />
+            <span asp-validation-for="Bo2" class="text-danger"></span>
+        </div>
+        <div class="col-md-1">
+            <input asp-for="Bo3" class="form-control" />
+            <span asp-validation-for="Bo3" class="text-danger"></span>
+        </div>
+    </div>
+}
+@if (Model.Ns != null && Model.Ns.Available)
+{
+    <div class="form-group row">
+        <div class="col-md-3">
+            <b>
+                @Model.Ns.Name
+            </b>
+        </div>
+        <div class="col-md-1">
+            <input asp-for="Ns1" class="form-control" />
+            <span asp-validation-for="Ns1" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1">
+            <input asp-for="Ns2" class="form-control" />
+            <span asp-validation-for="Ns2" class="text-danger"></span>
+        </div>
+        <div class="col-md-1">
+            <input asp-for="Ns3" class="form-control" />
+            <span asp-validation-for="Ns3" class="text-danger"></span>
+        </div>
+    </div>
+}
+@if (Model.Ln != null && Model.Ln.Available)
+{
+    <div class="form-group row">
+        <div class="col-md-3">
+            <b>
+                @Model.Ln.Name
+            </b>
+        </div>
+        <div class="col-md-1">
+            <input asp-for="Ln1" class="form-control" />
+            <span asp-validation-for="Ln1" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1">
+            <input asp-for="Ln2" class="form-control" />
+            <span asp-validation-for="Ln2" class="text-danger"></span>
+        </div>
+        <div class="col-md-1">
+            <input asp-for="Ln3" class="form-control" />
+            <span asp-validation-for="Ln3" class="text-danger"></span>
+        </div>
+    </div>
+}

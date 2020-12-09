@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Control";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-4">
+        <a asp-action="Index"
+           asp-controller="Users"
+           asp-area=""
+           class="btn btn-light"
+           style="width: 100%; text-align: left">
+            <img src="~/images/Icons/users2.png" width="60" height="60" align="middle" />
+            <span style="font-size: large; font-weight: bold" data-localize="options.users">
+                Empleados
+            </span>
+        </a>
+    </div>
+   
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            manualTranslations();
+            othersTranslations();
+        });
+
+        function othersTranslations() {
+
+             if (language == 'English' || language == 'en' ) {
+                $('#headerTitle').text('General Administration');
+            } else {
+                $('#headerTitle').text('Administracion General');
+            }
+        }
+
+    </script>
+}

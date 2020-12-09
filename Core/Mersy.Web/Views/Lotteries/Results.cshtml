@@ -1,0 +1,86 @@
+﻿@model ResultsViewModel
+
+@{
+    ViewData["Title"] = "Resultados Sorteos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="RegisterResult" enctype="multipart/form-data">
+    <hr />
+    <input type="hidden" asp-for="Indicator" />
+    <div style="text-align:right">
+        <a asp-action="Results"
+           class="btn btn-secondary">
+            <i class="fa fa-reply-all"></i>
+            <span>Regresar</span>
+        </a>
+        <button type="submit" class="btn btn-primary">
+            <i class="fa fa-save "></i>
+            <span>
+                Guardar
+            </span>
+        </button>
+    </div>
+    <div class="container-fluid">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Date" class="control-label">Fecha</label>
+                <input asp-for="Date" class="form-control" type="date" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div id="tableHolder">
+            @await Html.PartialAsync("_LoterryResultPartial", Model)
+        </div>
+
+    </div> 
+
+    <br />
+    <br />
+
+
+</form>
+
+
+
+@section Scripts {
+
+    <script>
+
+           function GetElementsByFilter() {
+             var url = '@Url.Action("ResultsFilter")';
+
+            $.ajax({
+                type: "POST",
+                url: url, //call your controller and action
+                data: {
+                    date: $('#Date').val(),
+                },
+                success: function (data) {
+
+                    $("#tableHolder").html(data);
+                }
+                });
+
+        }
+        $(document).ready(function () {
+
+            $('#Date').on('change', function () {
+                GetElementsByFilter();
+            });
+             
+            if ($('#Indicator').val() == 'Saved')  
+                swal("Resultados Registrados!", "Se ha guardado la transaccion !", "success");
+            else if ($('#Indicator').val() != '')
+                swal("Error al Intentar Guardar!", $('#Indicator').val() , "Danger");
+
+        });
+
+    </script>
+}
+
+
+
+

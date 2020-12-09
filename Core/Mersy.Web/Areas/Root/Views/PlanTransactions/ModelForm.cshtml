@@ -1,0 +1,28 @@
+﻿ 
+@model PlanTransaction
+
+@{
+    ViewData["Title"] = "Regitrar ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<form asp-action="SaveModel" enctype="multipart/form-data">
+    <hr />
+
+    <partial name="_ModelCommon" />
+
+    <br />
+    <br />
+    <partial name="_GenSubmitButons" />
+
+
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+ 
+}
+
+

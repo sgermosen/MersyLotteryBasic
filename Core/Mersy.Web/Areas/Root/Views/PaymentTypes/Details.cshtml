@@ -1,0 +1,25 @@
+﻿
+@model PaymentType
+
+@{
+    ViewData["Title"] = "Detalle ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+
+@await Html.PartialAsync("_BtnsForDetails", new ButtonsModel
+                                                            {
+                                                                Id = Model.Id,
+                                                            }
+                        )
+<div class="IsDetailForm">
+    <partial name="_ModelCommon" />
+</div>
+
+<br />
+<br />
+
+ 
+
+

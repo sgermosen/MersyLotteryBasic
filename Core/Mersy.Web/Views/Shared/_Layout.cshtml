@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Sistema de Registros Medicos">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin, medical, records, medical record system, historia clinica, sistema de hospitales, aplicacion movil">
+    <title>@ViewData["Title"] - Sistema de Loteria</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+    <link href="~/Vendor/spinkit/css/spinkit.css" rel="stylesheet" />
+    <link href="~/Vendor/loaders.css/loaders.css" rel="stylesheet" />
+    <environment names="Development">
+        <!-- =============== VENDOR STYLES ===============-->
+        <link href='~/vendor/@@fortawesome/fontawesome-free/css/brands.css' rel="stylesheet" />
+        <link href='~/vendor/@@fortawesome/fontawesome-free/css/regular.css' rel="stylesheet" />
+        <link href='~/vendor/@@fortawesome/fontawesome-free/css/solid.css' rel="stylesheet" />
+        <link href='~/vendor/@@fortawesome/fontawesome-free/css/fontawesome.css' rel="stylesheet" />
+        <link href="~/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" />
+        <link href="~/vendor/animate.css/animate.css" rel="stylesheet" />
+        <link href="~/vendor/whirl/dist/whirl.css" rel="stylesheet" />
+        <!-- =============== BOOTSTRAP STYLES ===============-->
+        <link href="~/css/bootstrap.css" rel="stylesheet" id="bscss" />
+
+        <!-- =============== APP STYLES ===============-->
+        <link href="~/css/app.css" rel="stylesheet" asp-append-version="true" id="maincss" />
+
+    </environment>
+
+    <environment names="Staging,Production">
+        <!-- =============== VENDOR STYLES ===============-->
+        <link href='~/vendor/@@fortawesome/fontawesome-free/css/brands.css' rel="stylesheet" />
+        <link href='~/vendor/@@fortawesome/fontawesome-free/css/regular.css' rel="stylesheet" />
+        <link href='~/vendor/@@fortawesome/fontawesome-free/css/solid.css' rel="stylesheet" />
+        <link href='~/vendor/@@fortawesome/fontawesome-free/css/fontawesome.css' rel="stylesheet" />
+        <link href="~/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" />
+        <link href="~/vendor/animate.css/animate.css" rel="stylesheet" />
+        <link href="~/vendor/whirl/dist/whirl.css" rel="stylesheet" />
+        <!-- =============== BOOTSTRAP STYLES ===============-->
+        <link href="~/css/bootstrap.css" rel="stylesheet" id="bscss" />
+
+        <!-- =============== APP STYLES ===============-->
+        <link href="~/css/app.css" rel="stylesheet" asp-append-version="true" id="maincss" />
+    </environment>
+    <link href="~/lib/datatable/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <link href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- top navbar-->
+        <header class="topnavbar-wrapper">
+            <partial name="_TopNavbar" />
+        </header>
+        <!-- sidebar-->
+
+        <aside class="aside-container">
+            <partial name="_Sidebar" />
+        </aside>
+
+
+        <!-- offsidebar-->
+        <aside class="offsidebar d-none">
+            <partial name="_Offsidebar" />
+        </aside>
+        <!-- Main section-->
+        <section class="section-container">
+            <!-- Page content-->
+            <div class="content-wrapper">
+              
+                <div class="content-heading">
+                    <span id="headerTitle">   @ViewData["Title"] </span>
+
+                    <!-- START Language list-->
+                    <div class="ml-auto">
+                        <div class="btn-group">
+                            <button class="btn btn-secondary dropdown-toggle
+                                    dropdown-toggle-nocaret"
+                                    type="button"
+                                    data-toggle="dropdown">
+                                Leng
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right-forced animated fadeInUpShort"
+                                 role="menu">
+                                <a class="dropdown-item jsDataLanguaje" href="#" data-set-lang="es">Español</a>
+                                <a class="dropdown-item jsDataLanguaje" href="#" data-set-lang="en">English</a>
+
+                            </div>
+                        </div>
+                    </div><!-- END Language list-->
+
+                </div>
+            
+                <div id="renderBodyContent" aria-hidden="true">
+                    @RenderBody()
+                    <script src="~/vendor/jquery/dist/jquery.js"></script>
+                    
+                </div>
+
+            </div>
+        </section>
+        <!-- Page footer-->
+        <footer class="footer-container">
+            <partial name="_Footer" />
+        </footer>
+    </div>
+     
+
+    @if (IsSectionDefined("BodyArea"))
+    {
+        @RenderSection("BodyArea", required: false)
+    } 
+    <script src="~/vendor/modernizr/modernizr.custom.js"></script>
+    <script src="~/vendor/js-storage/js.storage.js"></script>
+    <script src="~/vendor/screenfull/dist/screenfull.js"></script>
+    <script src="~/vendor/i18next/i18next.js"></script>
+
+    <script src="~/vendor/i18next-xhr-backend/i18nextXHRBackend.js"></script> 
+    
+
+        <script src="~/vendor/popper.js/dist/umd/popper.js"></script>
+        <script src="~/vendor/bootstrap/dist/js/bootstrap.js"></script>
+
+
+        <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+        @RenderSection("scripts", required: false)
+
+        <!-- =============== APP SCRIPTS ===============-->
+
+        <script src="~/js/app.js"></script>
+     
+
+    <script src="~/Vendor/sweetalert/dist/sweetalert.min.js"></script> 
+    <script src="~/lib/Ps/maskedinput.js"></script>
+
+    <script src="~/lib/Ps/GenericFx.js"></script>
+
+    <script src="~/lib/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="~/lib/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+
+
+    <script>
+
+          var language = "Español";
+        $(document).ready(function () {
+              
+                var ROOT_URL = window.location.protocol + "//" + window.location.host;
+             
+            language = Storages.localStorage.get('jq-appLang');
+
+                manualTranslations();
+
+            $(".jsDataLanguaje").click(function () {
+                language = $(this).text();
+               // Storages.localStorage.set(STORAGEKEY, 'es');
+                manualTranslations();
+             //   location.reload();
+                othersTranslations();
+
+            });
+
+                $('.table').DataTable({
+                    "lengthMenu": [[5, 25, 50, -1], [5, 25, 50, "*"]],
+                    "language": {
+                        "sUrl": ROOT_URL +  "/lib/datatable/translate/Spanish.json"
+                    },
+                    "searching": false,
+                    "bFilter": false,
+                    "bLengthChange": false
+                });
+             
+            var url = '../Home/Getnotifications';
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {
+                },
+                success: function (data) {
+                    console.log(data);
+                    $("#NotificationContainer").html(data);
+                }
+            });
+            $('.btnDirectDelete').on('click', function (e) {
+                e.preventDefault();
+                var urlToGo = $(this).attr('href');
+
+                swal({
+                    title: 'Seguro de Eliminar?',
+                    text: 'Estas a punto de eliminar de forma permanente este registro, ¿Seguro que deseas proceder?!',
+                    icon: 'warning',
+                    buttons: {
+                        cancel: {
+                            text: 'No!',
+                            value: null,
+                            visible: true,
+                            className: "",
+                            closeModal: false
+                        },
+                        confirm: {
+                            text: 'Si, Eliminar!',
+                            value: true,
+                            visible: true,
+                            className: "bg-danger",
+                            closeModal: false
+                        }
+                    }
+                }).then(function (isConfirm) {
+                    if (isConfirm) {
+                        window.location.replace(urlToGo);
+                        swal('Eliminado!', 'Tu Registro ha sido Eliminado.', 'success');
+                    } else {
+                        swal('Cancelado', 'Tu Registro está a salvo :)', 'error');
+                    }
+                });
+
+            }); 
+
+            });
+
+          function manualTranslations() {
+
+            if (language == 'English' || language == 'en' ) {
+                $('.menuAndOptions').prop('title', 'Menu and Options');
+                $('#logoutButonNav').prop('title', 'Block Screen/Close Session');
+                $('#expandFullScreenButon').prop('title', 'Expand to Full Screen');
+                $('#visualStylesButon').prop('title', 'Visual Styles Configuration');
+                $('#inputSearch').attr('placeholder', 'Write and Press Enter ...');
+            }
+            else {
+                $('.menuAndOptions').prop('title', 'Menu y Opciones');
+                $('#logoutButonNav').prop('title', 'Bloquear la Pantalla/Cerrar Sesion');
+                $('#expandFullScreenButon').prop('title', 'Expandir a Pantalla Completa');
+                $('#visualStylesButon').prop('title', 'Configuracion de Estilos Visuales');
+                $('#inputSearch').attr('placeholder', 'Escriba y pulse enter ...');
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
+

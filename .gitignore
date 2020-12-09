@@ -351,3 +351,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+Core/Mersy.API/appsettings.Development.json
+Core/Mersy.Web/appsettings.Development.json

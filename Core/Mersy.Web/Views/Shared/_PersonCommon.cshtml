@@ -1,0 +1,128 @@
+﻿@model Mersy.Web.Models.PersonView
+
+
+
+<div class="col-sm-4">
+    <label data-localize="general.code" class="control-label">Codigo</label>
+    <input asp-for="Record2" class="form-control" />
+    <span asp-validation-for="Record2" class="text-danger"></span>
+</div>
+<div class="col-sm-8">
+
+</div>
+<div class="col-sm-4">
+    <label data-localize="general.name" class="control-label">Nombre   <a style="color:red">(*)</a></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="col-sm-4">
+    <label data-localize="general.lastname" class="control-label">Apellido   <a style="color:red">(*)</a></label>
+    <input asp-for="Lastname" class="form-control" />
+    <span asp-validation-for="Lastname" class="text-danger"></span>
+</div>
+ 
+<div class="col-sm-4">
+    <label class="control-label">Fec. Nacimiento</label>
+    <div class="row">
+
+        <div class="col-sm-5">
+            <input asp-for="BornDate" class="form-control PsDates" />
+            @*<select asp-for="Day"
+                        asp-items="@((List<SelectListItem>)ViewData["Day"])"
+                        class="form-control dateVal">
+                    <option value="0">Dia</option>
+                </select>*@
+        </div>
+        <div class="col-sm-3">
+            <div class="checkbox">
+                <input id="manualAge" type="checkbox" /> Edad Manual?
+            </div>
+            @*<select asp-for="Month" asp-items="@((List<SelectListItem>)ViewData["Month"])" class="form-control dateVal">
+                    <option value="0">Mes</option>
+                </select>*@
+        </div>
+        <div class="col-sm-4">
+            <input asp-for="Age" class="form-control" placeholder="Edad" />
+
+            @*<select asp-for="Year" asp-items="@((List<SelectListItem>)ViewData["Year"])" class="form-control dateVal">
+                    <option value="0">Año</option>
+                </select>*@
+        </div>
+
+
+    </div>
+
+</div>
+<div class="col-sm-2">
+    <label data-localize="general.gender" class="control-label">Genero</label>
+    <select asp-for="GenderId"
+            asp-items="Model.Genders"
+            class="form-control"></select>
+    <span asp-validation-for="Gender" class="text-danger"></span>
+</div>
+<div class="col-sm-2">
+    <label data-localize="general.maritalSituation" class="control-label">Status Marital</label>
+    <select asp-for="MaritalSituationId"
+            asp-items="Model.MaritalSituations"
+            class="form-control"></select>
+    <span asp-validation-for="MaritalSituation" class="text-danger"></span>
+</div>
+<div class="col-sm-4">
+    <label data-localize="general.country" class="control-label">Nacionalidad</label>
+    <select asp-for="CountryId"
+            asp-items="Model.Countries"
+            class="form-control"></select>
+    <span asp-validation-for="Country" class="text-danger"></span>
+</div>
+
+<div class="col-sm-4">
+    <label class="control-label" data-localize="general.ocupation">Ocupación</label>
+    <select asp-for="OcupationId"
+            asp-items="Model.Ocupations"
+            class="form-control"></select>
+    <span asp-validation-for="Ocupation" class="text-danger"></span>
+</div>
+<div class="col-sm-4">
+    <label class="control-label" data-localize="general.scolarship">Nivel Escolar</label>
+    <select asp-for="SchoolLevelId"
+            asp-items="Model.SchoolLevels"
+            class="form-control"></select>
+    <span asp-validation-for="SchoolLevel" class="text-danger"></span>
+</div>
+<div class="col-sm-4">
+    <label class="control-label">Tel </label>
+    <input asp-for="PhoneNumber" class="form-control Tel" />
+    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+</div>
+<div class="col-sm-4">
+    <label class="control-label">Cel </label>
+    <input asp-for="Cel" class="form-control Tel" />
+    <span asp-validation-for="Cel" class="text-danger"></span>
+</div>
+<div class="col-sm-4">
+    <label class="control-label">Email  <a style="color:red">(*)</a></label>
+    <input asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+</div>
+<div class="col-sm-4">
+    <label data-localize="general.address" class="control-label"> Dirección   <a style="color:red">(*)</a></label>
+    <textarea asp-for="Address" class="form-control"></textarea>
+    <span asp-validation-for="Address" class="text-danger"></span>
+</div>
+ 
+<div class="col-sm-4">
+    <label class="control-label"> Fotografia </label>
+ 
+     
+        <input asp-for="ImageFile" class="form-control filestyle" type="file" data-classbutton="btn btn-secondary" data-classinput="form-control inline"
+               data-icon="<span class='fa fa-upload mr-2'></span>"
+               id="filestyle-0" tabindex="-1" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
+
+    
+
+
+
+</div>
+
+
+ 

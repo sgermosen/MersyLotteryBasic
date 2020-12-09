@@ -1,0 +1,50 @@
+﻿ 
+@model PlanTransaction
+ 
+    <div class="container-fluid">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="IsNew" />
+        <input type="hidden" asp-for="OwnerPlanId" />
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nombre</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Megabytes" class="control-label"></label>
+                <input asp-for="Megabytes" class="form-control" />
+                <span asp-validation-for="Megabytes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Registers" class="control-label"></label>
+                <input asp-for="Registers" class="form-control" />
+                <span asp-validation-for="Registers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserPosibility" class="control-label"></label>
+                <input asp-for="UserPosibility" class="form-control" />
+                <span asp-validation-for="UserPosibility" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrencyId" class="control-label"></label>
+                <select asp-for="CurrencyId" class="form-control" asp-items="ViewBag.Currencies"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentTypeId" class="control-label"></label>
+                <select asp-for="PaymentTypeId" class="form-control" asp-items="ViewBag.PaymentTypes"></select>
+            </div>
+
+        </div>
+    </div>
+ 
+ 
+
+

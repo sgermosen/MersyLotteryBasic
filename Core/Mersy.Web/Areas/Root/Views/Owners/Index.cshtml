@@ -1,0 +1,159 @@
+﻿@model IEnumerable<Owner>
+
+@{
+    ViewData["Title"] = "Listado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <a asp-action="Index"
+       asp-controller="Options"
+       asp-area="Root"
+       class="btn btn-success">
+        <i class="fa fa-reply-all"></i>
+        <span>Regresar a Todas las Opciones</span>
+    </a>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="fa fa-plus"></i>
+        <span>Registrar Nuevo </span>
+
+    </a>
+</p>
+<h2 style="color:green">
+    @ViewBag.Msg
+</h2>
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Apellido
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tel)
+                    </th>
+
+                    <th>
+                        Fecha de Inicio
+                    </th>
+
+                    <th>
+                        Tipo
+                    </th>
+                    <th>
+                        Mbs Disponibles
+                    </th>
+                    <th>
+                        Usuarios Restantes
+                    </th>
+                    <th>
+                        Registros Restantes
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tel)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OwnerType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MegabytesAvailable)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UsersAvailable)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RegitersAvailable)
+                        </td>
+
+                        <td style="width:120px;">
+                            <div class="btn-group" role="group">
+
+                                @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+                                                                           {
+                                                                               Action = "Details",
+                                                                               ButtonType = "btn-sm btn-outline-success",
+                                                                               Icon = "list",
+                                                                               ToolTipText = "Detalles e Información",
+                                                                               Text = "",
+                                                                               Id = item.Id,
+                                                                           }
+                                                      )
+                                @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+                                                                           {
+                                                                               Action = "Edit",
+                                                                               ButtonType = "btn-sm btn-outline-primary",
+                                                                               Icon = "pencil-alt",
+                                                                               Text = "",
+                                                                               ToolTipText = "Modificar Registro",
+                                                                               Id = item.Id,
+                                                                           }
+                                                       )
+                                @await Html.PartialAsync("_BtnPartial", new ButtonsModel
+                                                                           {
+                                                                               Action = "Delete",
+                                                                               ButtonType = "btn-sm btn-outline-danger",
+                                                                               Class = "btnDirectDelete",
+                                                                               Icon = "trash",
+                                                                               Text = "",
+                                                                               ToolTipText = "Eliminar Registro",
+                                                                               Id = item.Id,
+                                                                           }
+                                                      )
+                            </div>
+
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+
+        $(document).ready(function () {
+
+        });
+
+    </script>
+}
+
+
+
+

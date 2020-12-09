@@ -1,0 +1,92 @@
+﻿@using Mersy.Web.Helpers
+@model IEnumerable<LotterySale>
+
+@{
+    ViewData["Title"] = "Pago de Tickets Pendientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+  
+
+</p>
+ 
+<h3>Filtrar Por</h3>
+<table>
+    <tr>
+        <th>
+            Usuario
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Ticket
+        </th>
+       
+    </tr>
+    <tr>
+
+        <td>
+            <select id="user" class="form-control" asp-items="ViewBag.Users"></select>
+        </td>
+        <td>
+            <input id="date"   class="form-control PsDates PsDate" />
+        </td>
+        <td>
+            <input id="ticket" class="form-control" />
+        </td>
+       
+
+
+    </tr>
+</table>
+ 
+    <div id="tableHolder">
+        @await Html.PartialAsync("_TicketToBePaidPartial", Model)
+    </div>
+ 
+
+@section Scripts {
+
+    <script>
+
+        function GetTickets() {
+             var url = '@Url.Action("TicketsToBePaid")';
+
+            $.ajax({
+                type: "POST",
+                url: url, //call your controller and action
+                data: {
+                    date: $('#date').val(),
+                    ticket: $('#ticket').val(),
+                    user: $('#user').val(), 
+                },
+                success: function (data) {
+
+                    $("#tableHolder").html(data); 
+                }
+                });
+
+        }
+        $(document).ready(function () {
+ 
+            $('#ticket').on('change', function () {
+                GetTickets();
+            });
+            $('#date').on('change', function () {
+                GetTickets();
+            });
+            $('#user').on('change', function () {
+                GetTickets();
+            });
+
+
+        });
+
+    </script>
+}
+
+
+
+

@@ -1,0 +1,162 @@
+﻿@using Mersy.Web.Helpers
+@model List<LotterySale>
+
+@{
+    ViewData["Title"] = "Listado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="color:green">
+    @ViewBag.Msg
+</h2>
+ 
+ 
+<div id="tableHolder">
+
+    <div class="scroller">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped" id="MyTable">
+                <thead>
+                    <tr>
+                        <th>
+                            Vendedor
+                        </th>
+                        <th>
+                            Fecha
+                        </th>
+                        <th>
+                            Ticket
+                        </th>
+                        <th>
+                            Jugadas
+                        </th>
+                        <th>Monto</th>
+                        <th>
+                            Estado
+                        </th>
+                        <th>
+                            Premio
+                        </th>
+
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.CreatedUser.FullName
+                            </td>
+                            <td>
+                                @Html.FormatedTime(item.CreatedAt.Value)
+                            </td>
+                            <td>
+                                @item.Ticket
+                            </td>
+                            <td>
+                                @item.LotterySaleItems.Count()
+                            </td>
+                            <td>
+                                @item.TotalAmount
+                            </td>
+                            <td>
+                                @Html.TicketStatus(item.WasPaid, item.Prize)
+                            </td>
+                            <td>
+                                @item.Prize
+                            </td>
+
+                            <td>
+                                
+
+                               
+                                <div class="btn-group" role="group">
+                                    <a type="button" class="btn btn-outline-success"
+                                       asp-action="AdminNoDeleteTicket"
+                                       asp-route-id="@item.Id">
+                                        <i class="fa fa-window-check"></i>
+                                        <span>
+                                            Rechazar Anulacion
+                                        </span>
+                                    </a>
+
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <a type="button" class="btn btn-outline-danger btnDirectDelete"
+                                       asp-action="AdminDeleteTicket"
+                                       asp-route-id="@item.Id">
+                                        <i class="fa fa-window-close"></i>
+                                        <span>
+                                            Anular Ticket
+                                        </span>
+                                    </a>
+
+                                </div>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="detailDialog" tabindex="-1"
+     role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        @*<div class="modal-content">
+            <div id="tableHolderx"> 
+                @await Html.PartialAsync("_TicketDetailsPartial", Model)
+            </div>
+        </div>*@
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+
+        
+        $(document).ready(function () {
+             
+
+            $('.btnShowDetailsTicket').on('click', function (e) {
+                displayFilter(e);
+            });
+
+ });
+
+        function displayFilter(e) {
+                  e.preventDefault();
+
+         var url2 = '@Url.Action("GetTicketToDisplayDetail")';
+
+            $.ajax({
+                type: "POST",
+                url: url2,
+                data: {
+                    ticketId: e.currentTarget.dataset.id,
+                },
+                success: function (data) {
+
+                    $('#detailDialog').modal('show');
+
+                    $("#tableHolderx").html(data);
+
+                }
+                });
+
+
+
+        }
+
+    </script>
+}
+
+
+
+

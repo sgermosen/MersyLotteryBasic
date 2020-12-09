@@ -1,0 +1,66 @@
+﻿@using Mersy.Web.Helpers
+@model IEnumerable<LotterySale>
+
+<div class="scroller">
+    <div class="table-responsive">
+        <table class="table table-hover table-striped" id="MyTable">
+            <thead>
+                <tr>
+                    <th>
+                        Vendedor
+                    </th>
+                    <th>
+                        Fecha
+                    </th>
+                    <th>
+                        Ticket
+                    </th> 
+                    
+                    <th>
+                        Premio
+                    </th>
+
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.CreatedUser.FullName
+                        </td>
+                        <td>
+                            @Html.FormatedDate(item.CreatedAt.Value.ToLocalTime())
+                        </td>
+                        <td>
+                            @item.Ticket
+                        </td>
+                         
+                        <td>
+                            @item.Prize
+                        </td>
+
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a type="button" class="btn btn-success"
+                                   asp-action="PayPrize"
+                                   asp-route-id="@item.Id">
+                                    <i class="fa fa-check"></i>
+                                    <span>
+                                        Pagar Premio
+                                    </span>
+                                </a>
+
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

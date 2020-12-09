@@ -1,0 +1,374 @@
+﻿<div class="aside-inner">
+    <nav class="sidebar" data-sidebar-anyclick-close="">
+
+        <ul class="sidebar-nav">
+
+
+            <li class="nav-heading "><span data-localize="sidebar.heading.HEADER">Menu</span></li>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class=" ">
+                        <a h asp-action="ToAnulated"
+                           asp-controller="Lotteries"
+                           asp-area=""
+                           title="Anulaciones">
+                            <em class="fa fa-close">
+                            </em><span>Sol. Anulaciones</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="#dashboard" title="Configuracion" data-toggle="collapse">
+                            @*<div class="float-right badge badge-success">
+                        3
+                        </div>*@
+                            <em class="icon-wrench">
+                            </em>
+                            <span>
+                                Configuracion
+                            </span>
+                        </a>
+                        <ul class="sidebar-nav sidebar-subnav collapse" id="dashboard">
+                            <li class="sidebar-subnav-header">
+                                Dashboard
+                            </li>
+                            <li class=" ">
+                                <a asp-action="EditOwner"
+                                   asp-controller="Configurations"
+                                   asp-area=""
+                                   title="Owner">
+                                    <span>
+                                        Empresa
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="Index"
+                                   asp-controller="Shops"
+                                   asp-area=""
+                                   title="Zones">
+                                    <span>
+                                        Zonas
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="Index2"
+                                   asp-controller="LotteryRestrictions"
+                                   asp-area=""
+                                   title="Sell Limits">
+                                    <span>
+                                        Limite de Ventas
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class=" ">
+                        <a h asp-action="Index"
+                           asp-controller="Lotteries"
+                           asp-area=""
+                           title="Loterias">
+                            <em class="fa fa-sitemap">
+                            </em><span>Loterias</span>
+                        </a>
+                    </li>
+
+                    <li class=" ">
+                        <a asp-action="Index"
+                           asp-controller="Cashiers"
+                           asp-area=""
+                           title="Terminales">
+                            <em class="fa fa-mobile"></em><span>Terminales</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a h asp-action="MonitoringTickets"
+                           asp-controller="Lotteries"
+                           asp-area=""
+                           title="Loterias">
+                            <em class="fas fa-ticket-alt">
+                            </em><span>Monitoreo de Tickets</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a h asp-action="MonitoringPlays"
+                           asp-controller="Lotteries"
+                           asp-area=""
+                           title="Loterias">
+                            <em class="fab fa-cloudsmith ">
+                            </em><span>Monitoreo de Jugadas</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a h asp-action="Results"
+                           asp-controller="Lotteries"
+                           asp-area=""
+                           title="Loterias">
+                            <em class="fa fa-star">
+                            </em><span>Sorteos/Resultados</span>
+                        </a>
+                    </li>
+
+
+                    <li class=" ">
+                        <a href="#cuadres" title="Cuadres" data-toggle="collapse">
+
+                            <em class="far fa-calendar-check">
+                            </em>
+                            <span>
+                                Cuadres
+                            </span>
+                        </a>
+                        <ul class="sidebar-nav sidebar-subnav collapse" id="cuadres">
+                            <li class="sidebar-subnav-header">
+                                Cuadre
+                            </li>
+                            <li class=" ">
+                                <a asp-action="MakeCuadre"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Realizar Cuadre">
+                                    <span>
+                                        Realizar Cuadre
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="MakePrizePayment"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Pago de Premios">
+                                    @*<em class="fas fa-donate">
+                                </em>*@
+                                    <span>Pago de Premios</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="MakeDebPayment"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Pago de Deudas">
+                                    @*<em class="fas fa-dollar-sign">
+                                </em>*@
+                                    <span>Recibir Fondos (P. Deudas)</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="IndexCuadres"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Buscar Cuadres">
+                                    <span>
+                                        Buscar Cuadres
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="IndexPrizes"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Buscar Pagos">
+                                    <span>
+                                        Buscar Pagos
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="IndexDebs"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Buscar Recibos">
+                                    <span>
+                                        Buscar Recibos
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class=" ">
+                        <a href="#reportes" title="Reportes" data-toggle="collapse">
+                            <em class="far fa-chart-bar">
+                            </em>
+                            <span>
+                                Reportes
+                            </span>
+                        </a>
+                        <ul class="sidebar-nav sidebar-subnav collapse" id="reportes">
+                            <li class="sidebar-subnav-header">
+                                Reportes
+                            </li>
+                            @*<li class=" ">
+                                <a asp-action="IndexSales"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Resumen de Ventas">
+                                    <span>
+                                        Resumen de Ventas
+                                    </span>
+                                </a>
+                            </li>*@
+                            <li class=" ">
+                                <a asp-action="IndexSales"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Ventas">
+                                    <span>
+                                        Ventas
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="IndexNumbers"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Numeros">
+                                    <span>
+                                        Numeros
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="IndexSellerSales"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Vendedores">
+                                    <span>
+                                        Vendedores
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="IndexLotteriesAndPlays"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Loterias y Jugadas">
+                                    <span>
+                                        Loterias y Jugadas
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="IndexWinners"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Tickets Premiados">
+                                    <span>
+                                        Tickets Premiados
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="IndexWinnersNoPaid"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Tickets No Pagados">
+                                    <span>
+                                        Tickets No Pagados
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="IndexAnulated"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Tickets Anulados">
+                                    <span>
+                                        Tickets Anulador
+                                    </span>
+                                </a>
+                            </li>
+                            @*<li class=" ">
+                            <a asp-action="IndexSupervisor"
+                               asp-controller="Reports"
+                               asp-area=""
+                               title="Comision Supervisor">
+                                <span>
+                                    Comision Supervisor
+                                </span>
+                            </a>
+                        </li>*@
+                            <li class=" ">
+                                <a asp-action="IndexBalance"
+                                   asp-controller="Reports"
+                                   asp-area=""
+                                   title="Comision Supervisor">
+                                    <span>
+                                        Balance
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class=" ">
+                        <a href="#usersdash" title="Usuarios" data-toggle="collapse">
+
+                            <em class="fa fa-users">
+                            </em>
+                            <span>
+                                Usuarios
+                            </span>
+                        </a>
+                        <ul class="sidebar-nav sidebar-subnav collapse" id="usersdash">
+                            <li class="sidebar-subnav-header">
+                                Usuarios
+                            </li>
+                            <li class=" ">
+                                <a asp-action="Index"
+                                   asp-controller="Employees"
+                                   asp-area=""
+                                   title="Admins">
+                                    <span>
+                                        Administradores
+                                    </span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a asp-action="IndexSellers"
+                                   asp-controller="Employees"
+                                   asp-area=""
+                                   title="Sellers">
+                                    <span>
+                                        Vendedores
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class=" ">
+                        <a h asp-action="MyAccount"
+                           asp-controller="Account"
+                           asp-area=""
+                           title="Loterias">
+                            <em class="icon-lock">
+                            </em><span>Mi Cuenta</span>
+                        </a>
+                    </li>
+
+
+                }
+
+                @if (User.IsInRole("Seller"))
+                {
+                    <li class=" ">
+                        <a asp-action="SellNumbers"
+                           asp-controller="Lotteries"
+                           asp-area=""
+                           title="Terminales">
+                            <em class="fas fa-dice-six"></em><span>Venta</span>
+                        </a>
+                    </li>
+
+                }
+
+            }
+        </ul><!-- END sidebar nav-->
+    </nav>
+</div><!-- END Sidebar (left)-->

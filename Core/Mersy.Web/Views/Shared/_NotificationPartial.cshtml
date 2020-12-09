@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Notification>
+ 
+
+    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-toggle="dropdown">
+        <em class="icon-bell"></em>
+        @if (Model.Count() > 0)
+        {
+            <span class="badge badge-danger">
+                @Model.Count()
+            </span>
+        }
+    </a>
+  
+    <div class="dropdown-menu dropdown-menu-right animated flipInX">
+        <div class="dropdown-item"> 
+            <div class="list-group">
+                 
+                @if (Model.Count() > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="list-group-item list-group-item-action"   href="@Url.Action(item.Action, item.Controller)">
+                            <div class="media">
+                                <div class="align-self-start mr-2">
+                                    <em class="@item.Icon fa-2x text-info"></em>
+                                </div>
+                                <div class="media-body">
+                                    <p class="m-0">@item.Title</p>
+                                    <p class="m-0 text-muted text-sm">@item.Message   </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+                <!-- list item-->
+                @*<div class="list-group-item list-group-item-action">
+                        <div class="media">
+                            <div class="align-self-start mr-2">
+                                <em class="fa fa-envelope fa-2x text-warning"></em>
+                            </div>
+                            <div class="media-body">
+                                <p class="m-0">New e-mails</p>
+                                <p class="m-0 text-muted text-sm">You have 10 new emails</p>
+                            </div>
+                        </div>
+                    </div>*@
+                <!-- list item-->
+                @*<div class="list-group-item list-group-item-action">
+                        <div class="media">
+                            <div class="align-self-start mr-2">
+                                <em class="fa fa-tasks fa-2x text-success"></em>
+                            </div>
+                            <div class="media-body">
+                                <p class="m-0">Pending Tasks</p>
+                                <p class="m-0 text-muted text-sm">11 pending task</p>
+                            </div>
+                        </div>
+                    </div>*@
+                <!-- last list item-->
+                @*<div class="list-group-item list-group-item-action">
+                        <span class="d-flex align-items-center">
+                            <span class="text-sm">More notifications</span>
+                            <span class="badge badge-danger ml-auto">14</span>
+                        </span>
+                    </div>*@
+            </div>
+            <!-- END list group-->
+        </div>
+    </div>
+
+ 
+

@@ -1,0 +1,614 @@
+﻿
+<hr />
+@using System.Collections
+@model LotterySale
+
+@{
+    ViewBag.Title = "Venta de Ticket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var lotteryList = ViewBag.LoteryTypes;
+    var loteryModeList = ViewBag.LotteryModesx;
+}
+<style>
+    input[type="checkbox"] {
+        width: 30px; /*Desired width*/
+        height: 30px; /*Desired height*/
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    @Html.HiddenFor(model => model.Ticket)
+    <div class="container panel panel-default" id="programView">
+
+        @if (Model != null && Model.Id > 0)
+        {
+            @Html.HiddenFor(model => model.Id);
+        }
+        <div style="padding: 10px 0; text-align: right">
+            <a style="padding: 10px 20px" class="btn btn-primary" id="submit">
+                <span class="fa fa-print "></span> Guardar Transacción
+            </a>
+
+        </div>
+        <h2>
+            Agregue un cero delante de los numeros inferiores al 10
+
+        </h2>
+        <div id="SalesItems" class="tablecontainer   table-striped table-hover">
+        </div>
+        <div class="panel-body">
+            <table style="width: 100%">
+                <tr>
+                </tr>
+            </table>
+            <hr />
+            <table style="width:100%" id="tableItem">
+                <tr>
+                    <td width="30%">
+                        <label>Loteria</label>
+                    </td>
+                    <td width="30%">
+                        <label>Numeros</label>
+                    </td>
+                    <td width="30%">
+                        <label>Valor</label>
+                    </td>
+                    <td width="10%">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("Lottery", new SelectList(lotteryList, "Id", "Name"), new { @class = "form-control" })
+                        <span class="error">Loteria es requerido</span>
+                    </td>
+                    <td>
+                        <input type="number" id="PlayedNumbers" class="form-control" />
+                    </td>
+                    <td>
+                        <input type="number" id="PlayedAmount" class="form-control" />
+                    </td>
+                    <td>
+                        <input type="button" id="add" value="+" class="btn btn-warning" />
+                    </td>
+                </tr>
+            </table>
+
+            <div id="formaPagoPanel">
+                &nbsp; &nbsp; Forma de Pago: &nbsp; &nbsp;
+                <input type="radio" id="option1" name="Sells" value="1" checked="checked">
+                <label for="option1">Efectivo   &nbsp; &nbsp;</label>
+                <input type="radio" id="option2" name="Sells" value="2">
+                <label for="option2">Tarjeta  &nbsp; &nbsp;</label>
+                <input type="radio" id="option3" name="Sells" value="3">
+                <label for="option3">Cheque  &nbsp; &nbsp;</label>
+                <input type="radio" id="option4" name="Sells" value="4">
+                <label for="option4">Credito  &nbsp; &nbsp;</label>
+            </div>
+        </div>
+    </div>
+    <div id="combinationMode">
+        <table style="width:93%" id="tableItem">
+            <tr>
+                <td width="50%">
+                    <label>PR</label>
+                </td>
+                <td>
+                    @Html.DropDownList("LotteryMode", new SelectList(loteryModeList, "Id", "Name"), new { @class = "form-control" })
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="combinationMode1">
+        <table style="width:93%" id="tableItem">
+            <tr>
+                <td width="33%">
+                    <label>PR</label>
+                </td>
+                <td>
+                    <select id="mode1" class="form-control">
+                        <option value="0"> Escoja Una Combinación 					   </option>
+                        <option value="1"> Quiniela					   </option>
+                        <option value="4"> Bourlette					   </option>
+                    </select>
+                </td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="combinationMode2">
+        <table style="width:93%" id="tableItem">
+            <tr>
+                <td width="33%">
+                    <label>PR</label>
+                </td>
+                <td>
+                    <select id="mode2" class="form-control">
+                        <option value="0"> Escoja Una Combinación 					   </option>
+                        <option value="5"> Loto 3					   </option>
+                        <option value="8"> Loto 3+				   </option>
+                    </select>
+
+                </td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="combinationMode3">
+        <table style="width:93%" id="tableItem">
+            <tr>
+                <td width="33%">
+                    <label>PR</label>
+                </td>
+                <td>
+                    <select id="mode3" class="form-control">
+                        <option value="0"> Escoja Una Combinación 					   </option>
+                        <option value="7"> Mariage					   </option>
+                        <option value="6"> Loto 4					   </option>
+                    </select>
+
+                </td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="combinationMode4">
+        <table style="width:93%" id="tableItem">
+            <tr>
+                <td width="33%">
+                    <label>PR</label>
+                </td>
+                <td>
+                    <select id="mode4" class="form-control">
+                        <option value="0"> Escoja Una Combinación 					   </option>
+                        <option value="3"> Tripleta				   </option>
+                    </select>
+                </td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+    </div>
+
+    <style>
+        span.error {
+            display: block;
+            visibility: hidden;
+            color: red;
+            font-size: 90%;
+        }
+
+        .container td {
+            vertical-align: top;
+        }
+
+        .tablecontainer table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 1px solid #BFAEAE;
+            border-right: 1px solid #BFAEAE;
+        }
+
+        .tablecontainer th {
+            border-bottom: 1px solid #BFAEAE !important;
+        }
+
+        .tablecontainer th, .tablecontainer td {
+            text-align: left;
+            border-left: 1px solid #BFAEAE;
+            padding: 5px;
+            border-bottom: 1px solid #BFAEAE;
+        }
+
+        .ui-widget {
+            font-size: 12px !important;
+        }
+
+        @@media print {
+            body.modalprinter * {
+                visibility: hidden;
+            }
+
+            body.modalprinter .modal-dialog.focused {
+                position: absolute;
+                padding: 0;
+                margin: 0;
+                left: 0;
+                top: 0;
+            }
+
+                body.modalprinter .modal-dialog.focused .modal-content {
+                    border-width: 0;
+                }
+
+                    body.modalprinter .modal-dialog.focused .modal-content .modal-header .modal-title,
+                    body.modalprinter .modal-dialog.focused .modal-content .modal-body,
+                    body.modalprinter .modal-dialog.focused .modal-content .modal-body * {
+                        visibility: visible;
+                        width: 100%;
+                    }
+
+                    body.modalprinter .modal-dialog.focused .modal-content .modal-header,
+                    body.modalprinter .modal-dialog.focused .modal-content .modal-body {
+                        padding: 0;
+                        width: 100%;
+                    }
+
+                        body.modalprinter .modal-dialog.focused .modal-content .modal-header .modal-title {
+                            margin-bottom: 20px;
+                        }
+        }
+    </style>
+}
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+		function deleteRow(i) {
+			SalesItems.splice(i, 1);
+			GeneratedItemsTable();
+		}
+
+		function deleteRowEdit(detailId) {
+
+			var data = { id: detailId };
+				   $.ajax({
+				url: '@Url.Action("RemoveItemFromSale")',
+				type: "POST",
+				data: JSON.stringify(data),
+				dataType: "JSON",
+				contentType: "application/json",
+				success: function(d) {
+					if (d.status == true) {
+						var url = '@Url.Action("SellNumbers")';
+						url +=  "?id=" + d.Id;
+						window.location.href = url;
+
+					} else {
+						alert('Error al intentar Guardar');
+						$('#submit').attr("disabled", false);
+					}
+
+					$("#tableItem,#itemsOn,#BtnAddServicio,#itemsOn,#BtnCancelAdd").show();
+					$("#divSearch,#tableItem").hide();
+
+				},
+				error: function() {
+					alert('Error al intentar Guardar');
+					alert('Error. Porfavor intente de nuevo.');
+					$('#submit').attr("disabled", false);
+				}
+			});
+		}
+
+    </script>
+    <script>
+
+		$(document).ready(function () {
+
+
+			$("#formaPagoPanel,#combinationMode,#combinationMode1,#combinationMode2,#combinationMode3,#combinationMode4").hide();
+
+            $('#PlayedNumbers').keypress(function (e) {
+                var key = e.which;
+                if (key == 13)  // the enter key code
+                {
+                    $('#PlayedAmount').focus();
+                    return false;
+                }
+            });
+
+            $('#PlayedAmount').keypress(function (e) {
+                var key = e.which;
+                if (key == 13)  // the enter key code
+                {
+                    $('#add').click();
+                    return false;
+                }
+            });
+			$('#add').click(function () {
+
+				if ($('#Lottery').val().trim() == '' || $('#Lottery').val() == 0) {
+					alert('Seleccione la Loteria');
+					return;
+				}
+
+				if (!($('#PlayedNumbers').val().trim() != '' && !isNaN($('#PlayedNumbers').val().trim()))) {
+					alert('Digite Numeros a Jugar'); $('#PlayedNumbers').focus();
+					return;
+				}
+
+				if (!($('#PlayedAmount').val().trim() != '' && !isNaN($('#PlayedAmount').val().trim()))) {
+					alert('Digite el Monto de la Jugada'); $('#PlayedAmount').focus();
+					return;
+				}
+
+				$("#programView").hide();
+
+				//refresh lottery only for availables
+				if ($('#Lottery').val() == 1 || $('#Lottery').val() == 2 || $('#Lottery').val() == 3 || $('#Lottery').val() == 5 || $('#Lottery').val() == 6) {
+					if ($('#PlayedNumbers').val().trim().length == 2) {
+                        $('#LotteryMode').val(4);
+						$("#programView").show();
+                        addItemToable();
+					}
+					else if ($('#PlayedNumbers').val().trim().length == 3) {
+						$('#LotteryMode').val(5);
+						$("#programView").show();
+						addItemToable();
+					}
+					else if ($('#PlayedNumbers').val().trim().length == 4) {
+						$("#combinationMode3").show();
+					}
+					@*else if ($('#PlayedNumbers').val().trim().length == 6) {
+						$('#LotteryMode').val(3);
+						$("#programView").show();
+						addItemToable();
+					}*@
+					else {
+						$("#combinationMode").hide();
+						$("#programView").show();
+						alert('Combinacion de Numeros Invalida');
+						return;
+					}
+				}
+				else if ($('#Lottery').val() == 4) {
+                    if ($('#PlayedNumbers').val().trim().length == 2) {
+                        $('#LotteryMode').val(1);
+                        $("#programView").show();
+                        addItemToable();
+                    }
+                    @*else if ($('#PlayedNumbers').val().trim().length == 3) {
+                        $('#LotteryMode').val(5);
+                        $("#programView").show();
+                        addItemToable();
+                    }*@
+                    else if ($('#PlayedNumbers').val().trim().length == 4) {
+                        $('#LotteryMode').val(2);
+                        $("#programView").show();
+                        addItemToable();
+                    }
+                    else if ($('#PlayedNumbers').val().trim().length == 6) {
+                        $('#LotteryMode').val(3);
+                        $("#programView").show();
+                        addItemToable();
+                    }
+                    else {
+                        $("#combinationMode").hide();
+                        $("#programView").show();
+                        alert('Combinacion de Numeros Invalida');
+                        return;
+                    }
+                }
+
+					//addItemToable();
+			});
+
+			$('#mode1').change(function () {
+				$('#LotteryMode').val($('#mode1 option:selected').val());
+				$("#programView").show();
+				$("#combinationMode1").hide();
+				addItemToable();
+			});
+			$('#mode2').change(function () {
+				$('#LotteryMode').val($('#mode2 option:selected').val());
+				$("#combinationMode2").hide();
+				$("#programView").show();
+				addItemToable();
+			});
+			$('#mode3').change(function () {
+				$('#LotteryMode').val($('#mode3 option:selected').val());
+				$("#combinationMode3").hide();
+				$("#programView").show();
+				addItemToable();
+			});
+			$('#mode4').change(function () {
+				$('#LotteryMode').val($('#mode4 option:selected').val());
+				$("#combinationMode4").hide();
+				$("#programView").show();
+				addItemToable();
+			});
+
+			$('#aleatoryPlay').click(function () {
+
+					if ($('#PlayedNumbers').val().trim() != '' || $('#PlayedNumbers').val() > 0) {
+						alert('Debe Dejar el campo de Numeros vacio para jugadas aleatorias');
+						return;
+					}
+					addItemToable();
+				});
+
+				//Save button click function
+			$('#submit').click(function () {
+					$('#submit').attr("disabled", true);
+
+					if (isAlFieldValid) {
+							saveNewChanges();
+					}
+				});
+
+			$('#submit2').click(function () {
+					SalesItems = [];
+				   // $('#Remarks').val('');
+					$('#SalesItems').empty();
+				});
+			});
+
+			var SalesItems = [];
+
+			function isAlFieldValid() {
+					   var isAllValid = true;
+					if (SalesItems.length == 0) {
+						$('#SalesItems').html('<span style="color:red;">Añade numeros o servicios a la orden</span>');
+						isAllValid = false;
+						$('#submit').attr("disabled", false);
+					}
+
+				if ($("#TotalAmount").val() <= 0 ) {
+						alert("El Total debe ser mayor a cero");
+						$('#submit').attr("disabled", false);
+						return;
+				}
+				return isAllValid;
+			}
+
+			function addItemToable() {
+
+				var isValidItem = true;
+				if ($('#LotteryMode').val().trim() == '' || $('#LotteryMode').val() == 0 ) {
+					isValidItem = false;
+					alert('Seleccione el PR');
+				}
+
+				if (($('#LotteryMode').val() == 1 && $('#PlayedNumbers').val().trim().length != 2) || ($('#LotteryMode').val() == 4 && $('#PlayedNumbers').val().trim().length != 2)) {
+					isValidItem = false;
+					alert('La Quiniela/Bourlette Requiere UN (1) Numero jugable de dos digitos'); $('#PlayedNumbers').focus();
+				}
+
+				if (($('#LotteryMode').val() == 2 && $('#PlayedNumbers').val().trim().length != 4) || ($('#LotteryMode').val() == 7 && $('#PlayedNumbers').val().trim().length != 4) ) {
+					isValidItem = false;
+					alert('El Pale/Marriage Requiere DOS (2) Numeros jugables de dos digitos'); $('#PlayedNumbers').focus();
+				}
+
+				if ($('#LotteryMode').val() == 3 && $('#PlayedNumbers').val().trim().length != 6) {
+					isValidItem = false;
+					alert('La Tripleta Requiere TRES (3) Numeros jugables de dos digitos'); $('#PlayedNumbers').focus();
+				}
+
+				if ($('#LotteryMode').val() == 5 && $('#PlayedNumbers').val().trim().length != 3) {
+					isValidItem = false;
+					alert('El Loto 3 Requiere UN (1) Numero jugable de 3 digitos'); $('#PlayedNumbers').focus();
+				}
+
+				if ($('#LotteryMode').val() == 6 && $('#PlayedNumbers').val().trim().length != 4) {
+					isValidItem = false;
+					alert('El Loto 4 Requiere UN (1) Numero jugable de 4 digitos'); $('#PlayedNumbers').focus();
+				}
+
+				//Add item to list if valid
+				if (isValidItem) {
+
+					SalesItems.push({
+						LotteryName: $("#Lottery option:selected").text(),
+						LotteryId: parseInt ($("#Lottery option:selected").val()),
+						LotteryModeName: $("#LotteryMode option:selected").text(),
+						LotteryModeId: parseInt( $("#LotteryMode option:selected").val()),
+						PlayedNumbers: $('#PlayedNumbers').val().trim(),// parseInt($('#PlayedNumbers').val().trim()),
+						PlayedAmount: parseFloat($('#PlayedAmount').val())
+					});
+					//Clear fields
+				   // $('#LotteryMode').val('').focus();
+					$("#LotteryMode").val(0);
+					$('#PlayedAmount').val('');
+					$('#PlayedNumbers').val('').focus();
+
+					if($('#Id').val() > 0)
+					{
+						saveNewChanges(true);
+					}
+				}
+				//populate order items
+				GeneratedItemsTable();
+			}
+
+			function GeneratedItemsTable()
+			{
+			  $("#ItemTable").empty();
+
+				if (SalesItems.length > 0) {
+					var $table = $('<table id="ItemTable" class=" table-striped table-hover " width="100%"/>');
+					$table.append(
+						'<thead><tr class="success"><th>Loteria</th><th>PR</th><th>Numeros</th><th>Valor</th> <th>Acciones</th></tr></thead>');
+
+					var $tbody = $('<tbody/>');
+					$.each(SalesItems,
+						function (i, val) {
+							var $row = $('<tr class="active"/>');
+							$row.append($('<td/>').html(val.LotteryName));
+							$row.append($('<td/>').html(val.LotteryModeName));
+							$row.append($('<td/>').html(val.PlayedNumbers));
+							$row.append($('<td/>').html(val.PlayedAmount));
+							$row.append($('<td/>').html("<button type='button' class='btn btn-danger' onclick='deleteRow(" + i + ")'><span class='fa fa-trash'></span></button>"));
+
+							$tbody.append($row);
+						});
+
+					$table.append($tbody);
+					var TotalAmount = 0;
+					$.each(SalesItems,
+						function (i, val) {
+							TotalAmount = TotalAmount + val.PlayedAmount;
+						});
+
+					$table.append(
+						'<thead><tr> <th></th><th></th><th></th> <th><label></label></th><th>  </th></tr></thead>');
+					$table.append(
+						'<thead><tr> <th></th><th></th><th></th> <th><label> Total a Cobrar: </label></th><th><input type="text" class="form-control" id="TotalAmount" onblur="doMath(1);" value="' +
+						TotalAmount.toFixed(2) +
+						'" disabled="true"/> </th></tr></thead>');
+
+					$('#SalesItems').html($table);
+				}
+		}
+
+			function saveNewChanges(isAdding) {
+				$('#renderBodyContent').hide();
+				$('#loadingWait').show();
+				var sales = {
+					"Id": $('#Id').val(),
+					"Remarks": '',
+					"TotalAmount": $('#TotalAmount').val(),
+					"LotterySaleItems": SalesItems,
+					"PaymentTypeId": $('input[name="Sells"]:checked').val()
+				};
+
+						$.ajax({
+                            url: '@Url.Action("SaveSales")',
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            data: JSON.stringify(sales),
+							success: function (d) {
+								//check is successfully save to database
+								if (d.status == true) {
+
+									SalesItems = [];
+
+											var url = '@Url.Action("PrintTicket")';
+									url +=  "?id=" + d.idi;
+									 window.location.href = url;
+
+									$('#SalesItems').empty();
+									$('#renderBodyContent').show();
+									$('#loadingWait').hide();
+
+
+								}
+								else
+								{
+									alert('Error al intentar Guardar' + d.msg);
+                                    $('#submit').attr("disabled", false);
+                                    $('#renderBodyContent').show();
+                                    $('#loadingWait').hide();
+								}
+
+							  $('#submit').attr("disabled", false);
+							},
+							error: function () {
+								alert('Error. Porfavor intente de nuevo.');
+
+                                $('#submit').attr("disabled", false);
+                                $('#renderBodyContent').show();
+                                $('#loadingWait').hide();
+							}
+						});
+			}
+
+    </script>
+
+}
+

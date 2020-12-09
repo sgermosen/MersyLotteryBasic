@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Sistema de Registros Medicos">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin, medical, records, medical record system, historia clinica, sistema de hospitales, aplicacion movil">
+    <title>@ViewData["Title"] - Sistema de Loteria</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+    <!-- FONT AWESOME-->
+    <link rel="stylesheet" href="~/vendor/@@fortawesome/fontawesome-free/css/brands.css">
+    <link rel="stylesheet" href="~/vendor/@@fortawesome/fontawesome-free/css/regular.css">
+    <link rel="stylesheet" href="~/vendor/@@fortawesome/fontawesome-free/css/solid.css">
+    <link rel="stylesheet" href="~/vendor/@@fortawesome/fontawesome-free/css/fontawesome.css"><!-- SIMPLE LINE ICONS-->
+    <link rel="stylesheet" href="~/vendor/simple-line-icons/css/simple-line-icons.css"><!-- ANIMATE.CSS-->
+    <link rel="stylesheet" href="~/vendor/animate.css/animate.css"><!-- WHIRL (spinners)-->
+    <link rel="stylesheet" href="~/vendor/whirl/dist/whirl.css"><!-- =============== PAGE VENDOR STYLES ===============-->
+    <!-- Datatables-->
+    <link rel="stylesheet" href="~/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="~/vendor/datatables.net-keytable-bs/css/keyTable.bootstrap.css">
+    <link rel="stylesheet" href="~/vendor/datatables.net-responsive-bs/css/responsive.bootstrap.css">
+    <!-- =============== BOOTSTRAP STYLES ===============-->
+    <link rel="stylesheet" href="~/css/bootstrap.css" id="bscss"><!-- =============== APP STYLES ===============-->
+    <link rel="stylesheet" href="~/css/app.css" id="maincss">
+    <link href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- top navbar-->
+        <header class="topnavbar-wrapper">
+            <partial name="_TopNavbar" />
+        </header>
+        <!-- sidebar-->
+
+        <aside class="aside-container">
+            <partial name="_Sidebar" />
+        </aside>
+
+
+        <!-- offsidebar-->
+        <aside class="offsidebar d-none">
+            <partial name="_Offsidebar" />
+        </aside>
+        <!-- Main section-->
+        <section class="section-container">
+            <!-- Page content-->
+            <div class="content-wrapper">
+
+                <div class="content-heading">
+                    <span id="headerTitle">   @ViewData["Title"] </span>
+
+                    <!-- START Language list-->
+                    <div class="ml-auto">
+                        <div class="btn-group">
+                            <button class="btn btn-secondary dropdown-toggle
+                                    dropdown-toggle-nocaret"
+                                    type="button"
+                                    data-toggle="dropdown">
+                                Leng
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right-forced animated fadeInUpShort"
+                                 role="menu">
+                                <a class="dropdown-item jsDataLanguaje" href="#" data-set-lang="es">Español</a>
+                                <a class="dropdown-item jsDataLanguaje" href="#" data-set-lang="en">English</a>
+
+                            </div>
+                        </div>
+                    </div><!-- END Language list-->
+
+                </div>
+
+                <div id="renderBodyContent" aria-hidden="true">
+                    @RenderBody()
+
+
+                </div>
+
+            </div>
+        </section>
+        <!-- Page footer-->
+        <footer class="footer-container">
+            <partial name="_Footer" />
+        </footer>
+    </div>
+
+
+    @if (IsSectionDefined("BodyArea"))
+    {
+        @RenderSection("BodyArea", required: false)
+    }
+    <script src="~/vendor/modernizr/modernizr.custom.js"></script><!-- STORAGE API-->
+    <script src="~/vendor/js-storage/js.storage.js"></script><!-- SCREENFULL-->
+    <script src="~/vendor/screenfull/dist/screenfull.js"></script><!-- i18next-->
+    <script src="~/vendor/i18next/i18next.js"></script>
+    <script src="~/vendor/i18next-xhr-backend/i18nextXHRBackend.js"></script>
+    <script src="~/vendor/jquery/dist/jquery.js"></script>
+    <script src="~/vendor/popper.js/dist/umd/popper.js"></script>
+    <script src="~/vendor/bootstrap/dist/js/bootstrap.js"></script><!-- =============== PAGE VENDOR SCRIPTS ===============-->
+    <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+    @RenderSection("scripts", required: false)
+
+    <!-- Datatables-->
+    <script src="~/vendor/datatables.net/js/jquery.dataTables.js"></script>
+    <script src="~/vendor/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+    <script src="~/vendor/datatables.net-buttons/js/dataTables.buttons.js"></script>
+    <script src="~/vendor/datatables.net-buttons-bs/js/buttons.bootstrap.js"></script>
+    <script src="~/vendor/datatables.net-buttons/js/buttons.colVis.js"></script>
+    <script src="~/vendor/datatables.net-buttons/js/buttons.flash.js"></script>
+    <script src="~/vendor/datatables.net-buttons/js/buttons.html5.js"></script>
+    <script src="~/vendor/datatables.net-buttons/js/buttons.print.js"></script>
+    <script src="~/vendor/datatables.net-keytable/js/dataTables.keyTable.js"></script>
+    <script src="~/vendor/datatables.net-responsive/js/dataTables.responsive.js"></script>
+    <script src="~/vendor/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendor/jszip/dist/jszip.js"></script>
+    <script src="~/vendor/pdfmake/build/pdfmake.js"></script>
+    <script src="~/vendor/pdfmake/build/vfs_fonts.js"></script><!-- =============== APP SCRIPTS ===============-->
+    <script src="~/js/app.js"></script>
+    <script src="~/Vendor/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/lib/Ps/maskedinput.js"></script>
+
+    <script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="~/lib/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+
+    <script src="~/lib/Ps/GenericFx.js"></script>
+
+    <script>
+        var language = "Español";
+        $(document).ready(function () {
+
+            var ROOT_URL = window.location.protocol + "//" + window.location.host;
+
+            $('#MyTable').DataTable({
+                "lengthMenu": [[5, 25, 50, -1], [5, 25, 50, "*"]],
+                "language": {
+                    "sUrl": ROOT_URL + "/lib/datatable/translate/Spanish.json"
+                },
+                "searching": false,
+                "bFilter": false,
+                "bLengthChange": false,
+                //'paging': true,
+                // 'ordering': true,
+                // 'info': true,
+                responsive: true,
+                dom: 'Bfrtip',
+                buttons: [
+
+                            @* {
+                extend: 'copy',
+                className: 'btn-info'
+            },*@
+
+            {
+                extend: 'csv',
+                className: 'btn-info'
+            }, {
+                extend: 'excel',
+                    className: 'btn-info',
+                        title: 'XLS-File'
+            }, {
+                extend: 'pdf',
+                    className: 'btn-info',
+                        title: $('title').text()
+            }
+
+            @*, {
+                extend: 'print',
+                className: 'btn-info'
+            } *@
+
+                        ]
+        });
+            language = Storages.localStorage.get('jq-appLang');
+
+            manualTranslations();
+
+            $(".jsDataLanguaje").click(function () {
+                language = $(this).text();
+                othersTranslations();
+            });
+
+
+        });
+
+        function manualTranslations() {
+
+            if (language == 'English' || language == 'en') {
+                $('.menuAndOptions').prop('title', 'Menu and Options');
+                $('#logoutButonNav').prop('title', 'Block Screen/Close Session');
+                $('#expandFullScreenButon').prop('title', 'Expand to Full Screen');
+                $('#visualStylesButon').prop('title', 'Visual Styles Configuration');
+                $('#inputSearch').attr('placeholder', 'Write and Press Enter ...');
+            }
+            else {
+                $('.menuAndOptions').prop('title', 'Menu y Opciones');
+                $('#logoutButonNav').prop('title', 'Bloquear la Pantalla/Cerrar Sesion');
+                $('#expandFullScreenButon').prop('title', 'Expandir a Pantalla Completa');
+                $('#visualStylesButon').prop('title', 'Configuracion de Estilos Visuales');
+                $('#inputSearch').attr('placeholder', 'Escriba y pulse enter ...');
+            }
+
+        }</script>
+
+</body>
+</html>
+
