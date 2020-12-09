@@ -14,8 +14,7 @@
 
     <link href="~/css/printMediathermal.css" rel="stylesheet" />
 
-</head>
-@*https://github.com/parzibyte/print-receipt-thermal-printer*@
+</head> 
 <body>
     <div class="ticket">
         @if (!string.IsNullOrEmpty(Model.ImageFullPath))
@@ -124,12 +123,14 @@
 </body>
 </html>
 
-<script>const $btnPrint = document.querySelector("#btnPrint");
+<script>
+    const $btnPrint = document.querySelector("#btnPrint");
     $btnPrint.addEventListener("click", () => {
         window.print();
     });
 
-    window.print();</script>
+    window.print();
+    </script>
 
 
 
