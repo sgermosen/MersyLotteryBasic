@@ -10,7 +10,7 @@ This is Tenant (Owner) base software and have some interesting functionality tha
 
 The Angle Templeate implemented for the better good loking, it's PAID Template buyed to ThemeIco on CodeCanyon Platform, so, it's ilegal use that templated on your project. But, that's not my business, be carefully
 
-Install the Script Database
+Install the Script Database.
 
 Login with Carlos@gmail.com pass 123456 or 824455, and sell tickets.
 
